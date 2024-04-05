@@ -12,7 +12,7 @@ interface BannerSliderProps {
 
 export default function BannerSlider({ className }: BannerSliderProps) {
     const textStyle =
-        "text-black font-semibold text-[50px] font-[kumbhsans] uppercase select-none";
+        "text-black font-semibold text-[50px] font-[kumbhsans] uppercase select-none ";
 
     return (
         <Swiper

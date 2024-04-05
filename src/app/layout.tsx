@@ -24,7 +24,7 @@ export default function RootLayout({
                 ${kumbhSans.className} 
                 ${robotoSerif.className}                    
                 ${inter.className} 
-                    ${kronaOne.className}
+                ${kronaOne.className}
                 `}
             >
                 {children}

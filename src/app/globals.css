@@ -1,3 +1,4 @@
+@import url(../components/UI/button.css);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,6 +22,7 @@
         --secondary-foreground: #4b4737;
 
         --muted: 210 40% 96.1%;
+
         --muted-foreground: 215.4 16.3% 46.9%;
 
         --accent: #fecb00;
@@ -55,6 +57,7 @@
     }
 
     h2 {
+        @apply font-medium text-[76px] uppercase text-black
     }
 
     h3 {

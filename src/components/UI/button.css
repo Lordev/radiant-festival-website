@@ -2,16 +2,20 @@
     font-family: "roboto-serif";
     font-weight: 800;
     text-transform: uppercase;
-    cursor: pointer;
     display: inline-block;
     line-height: 1;
     letter-spacing: 2.5px;
 }
 
+
 .button--primary {
 }
+
 .button--secondary {
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
+
 .button--small {
     font-size: 12px;
     padding: 10px 16px;

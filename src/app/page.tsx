@@ -1,36 +1,38 @@
 "use client";
+import Image from "next/image";
+
 import Header from "@/components/Layout/Header";
 import Hero from "@/components/Layout/Hero";
 import Footer from "@/components/Layout/Footer";
-import Image from "next/image";
 import QuoteSlider from "@/components/UI/ArtistSlider";
 import Card from "@/components/UI/Card";
 import Input from "@/components/UI/Input";
-import { Button } from "@/components/UI/Button";
 import GallerySlider from "@/components/UI/GallerySlider";
 import BannerSlider from "@/components/UI/BannerSlider";
 import CardSlider from "@/components/UI/CardSlider";
+import { Icon } from "@iconify/react";
 import { Parallax } from "react-parallax";
+import AnimatedImage from "@/components/UI/AnimatedImage";
 
 export default function Home() {
     return (
-        <div className="bg-gradient-to-b from-background via-accent-secondary to-background from-30% to-60%">
+        <div className="bg-gradient-to-b from-background via-accent-secondary to-background from-30% to-60% overflow-hidden">
             <Header />
             <Hero />
             <div className="relative">
-                <Image
-                    src={"/leaf-1.png"}
-                    alt="leaf"
+                <AnimatedImage
+                    src="/leaf-1.png"
                     width={440}
                     height={597}
                     className="right-0 absolute top-24"
+                    animation="translateX(200px)"
                 />
-                <Image
-                    src={"/leaf-2.png"}
-                    alt="leaf"
+                <AnimatedImage
+                    src="/leaf-2.png"
                     width={483}
                     height={729}
                     className="left-0 absolute bottom-8"
+                    animation="translateX(-200px)"
                 />
                 <BannerSlider />
                 <div className="w-3/4 mx-auto grid items-center h-full py-80">
@@ -42,32 +44,29 @@ export default function Home() {
                             <div>
                                 <div className="w-full text-4xl font-bold">Artist </div>
                                 <div className="mt-4 w-full text-base font-medium">
-                                    Mark the twinley
+                                    Mark the Twinley
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-8">
+                            <div className="flex flex-col gap-4">
                                 <a href="#">
-                                    <Image
-                                        src={"/facebook-icon.png"}
-                                        alt="facebook"
+                                    <Icon
+                                        icon="ic:baseline-facebook"
                                         width={40}
-                                        height={45}
+                                        className="text-secondary-foreground hover:text-primary"
                                     />
                                 </a>
                                 <a href="#">
-                                    <Image
-                                        src={"/youtube-icon.png"}
-                                        alt="facebook"
-                                        width={37}
-                                        height={28}
+                                    <Icon
+                                        icon="mdi:youtube"
+                                        width={40}
+                                        className="text-secondary-foreground hover:text-primary"
                                     />
                                 </a>
                                 <a href="#">
-                                    <Image
-                                        src={"/instagram-icon.png"}
-                                        alt="facebook"
-                                        width={26}
-                                        height={28}
+                                    <Icon
+                                        icon="mdi:instagram"
+                                        width={40}
+                                        className="text-secondary-foreground hover:text-primary"
                                     />
                                 </a>
                             </div>
@@ -86,20 +85,20 @@ export default function Home() {
                 </div>
                 <div className="h-[.4px] w-4/5 bg-gradient-to-r from-transparent via-black to-transparent mx-auto"></div>
             </div>
-            <div className=" grid grid-cols-2 gap-40 py-40 relative">
-                <Image
-                    src={"/leaf-3.png"}
-                    alt="leaf"
+            <div className="grid grid-cols-2 gap-40 py-40 relative">
+                <AnimatedImage
+                    src="/leaf-3.png"
                     width={313}
                     height={607}
                     className="left-0 absolute bottom-8"
+                    animation="translateX(-200px)"
                 />
-                <Image
-                    src={"/leaf-4.png"}
-                    alt="leaf"
+                <AnimatedImage
+                    src="/leaf-4.png"
                     width={208}
                     height={468}
-                    className="right-0 absolute top-40"
+                    className="right-0 absolute top-24"
+                    animation="translateX(200px)"
                 />
                 <div className="pt-20 pl-96">
                     <h5>calendar</h5>
@@ -298,7 +297,7 @@ export default function Home() {
                         height={835}
                     />
                 </Card>
-                <Card backgroundColor="bg-card-dark" className="flex items-center">
+                <Card backgroundColor="bg-card-dark " className="flex items-center">
                     <div className="m-auto gap-4 *:mb-8 w-4/5">
                         <h5 className="text-foreground">Who we are</h5>
                         <h1 className="text-foreground">
@@ -311,28 +310,32 @@ export default function Home() {
                             laboris nisi ut aliquip ex ea commodo consequat. Duis aute
                             irure dolor in reprehenderit in voluptate
                         </p>
-                        <Button
+                        {/* <Button
                             label="Click me"
-                            backgroundColor="bg-accent"
+                            backgroundColor="accent"
+                            textColor="black"
                             primary={true}
-                        />
+                        /> */}
+                        <button className="button button--medium bg-accent text-black hover:bg-black hover:text-accent button--primary">
+                            Click me
+                        </button>
                     </div>
                 </Card>
             </div>
             <div className="relative">
-                <Image
-                    src={"/leaf-5.png"}
-                    alt="leaf"
+                <AnimatedImage
+                    src="/leaf-5.png"
                     width={176}
                     height={396}
                     className="left-0 absolute"
+                    animation="translateX(-100px)"
                 />
-                <Image
-                    src={"/leaf-6.png"}
-                    alt="leaf"
+                <AnimatedImage
+                    src="/leaf-6.png"
                     width={278}
                     height={747}
                     className="left-0 absolute bottom-40"
+                    animation="translateX(-100px)"
                 />
                 <div className="w-4/5 mx-auto pt-40 pb-80 gap-40 relative">
                     <Image
@@ -455,12 +458,12 @@ export default function Home() {
                 </div>
             </Parallax>
             <div className="relative">
-                <Image
-                    src={"/leaf-7.png"}
-                    alt="leaf"
+                <AnimatedImage
+                    src="/leaf-7.png"
                     width={267}
                     height={709}
-                    className="right-0 absolute top-40"
+                    className="right-0 absolute top-20"
+                    animation="translateX(200px)"
                 />
                 <div className="w-3/5 mx-auto mt-40">
                     <div className="grid grid-cols-2">
@@ -497,10 +500,15 @@ export default function Home() {
                                     ex ea commodo consequat. Duis aute irure dolor in
                                     reprehenderit in voluptate
                                 </p>
-                                <Button
+                                {/* <Button
                                     label="Click me"
-                                    backgroundColor="bg-accent-secondary"
-                                />
+                                    backgroundColor="primary"
+                                    textColor="white"
+                                    primary={true}
+                                /> */}
+                                <button className="button button--medium bg-primary text-white hover:bg-white hover:text-primary button--primary">
+                                    Click me
+                                </button>
                             </div>
                         </div>
                     </div>

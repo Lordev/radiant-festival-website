@@ -18,6 +18,11 @@ interface ButtonProps {
      */
     label: string;
     /**
+     * Text color
+     */
+    textColor?: string;
+
+    /**
      * Optional click handler
      */
     onClick?: () => void;
@@ -31,13 +36,14 @@ export const Button = ({
     size = "medium",
     backgroundColor,
     label,
+    textColor,
     ...props
 }: ButtonProps) => {
     const mode = primary ? "button--primary" : "button--secondary";
     return (
         <button
             type="button"
-            className={["button", backgroundColor, `button--${size}`, mode].join(" ")}
+            className={`button button--${size} bg- ${backgroundColor} text-${textColor} hover:bg-${textColor} hover:text-${backgroundColor} ${mode}`}
             {...props}
         >
             {label}
