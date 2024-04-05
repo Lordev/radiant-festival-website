@@ -1,0 +1,26 @@
+.button {
+    font-family: "roboto-serif";
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    letter-spacing: 2.5px;
+}
+
+.button--primary {
+}
+.button--secondary {
+}
+.button--small {
+    font-size: 12px;
+    padding: 10px 16px;
+}
+.button--medium {
+    font-size: 14px;
+    padding: 20px 20px;
+}
+.button--large {
+    font-size: 16px;
+    padding: 12px 24px;
+}
