@@ -80,7 +80,18 @@
         @apply text-start;
     }
 
+    textarea {
+        @apply border-secondary-foreground border-[1px] p-2 overflow-auto outline-none shadow-none resize-none text-card-dark text-[16px]
+    }
 
+    input {
+        @apply font-[roboto-serif]
+    }
+}
+
+textarea {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
 }
 
 #quote-swiper {

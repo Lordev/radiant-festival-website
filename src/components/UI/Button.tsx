@@ -1,6 +1,6 @@
 import "./button.css";
-
-interface ButtonProps {
+import { ButtonHTMLAttributes, useState } from "react";
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * Is this the principal call to action on the page?
      */
@@ -31,22 +31,41 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
+export default function Button({
     primary = false,
     size = "medium",
     backgroundColor,
     label,
     textColor,
     ...props
-}: ButtonProps) => {
+}: ButtonProps) {
+    const [hovered, setHovered] = useState(false);
+
+    const handleHoverEnter = () => {
+        setHovered(true);
+    };
+
+    const handleHoverLeave = () => {
+        setHovered(false);
+    };
+
     const mode = primary ? "button--primary" : "button--secondary";
+    const bgColor = hovered ? textColor : backgroundColor;
+    const txtColor = hovered ? backgroundColor : textColor;
+
     return (
         <button
+            onMouseEnter={handleHoverEnter}
+            onMouseLeave={handleHoverLeave}
             type="button"
-            className={`button button--${size} bg- ${backgroundColor} text-${textColor} hover:bg-${textColor} hover:text-${backgroundColor} ${mode}`}
+            className={`button button--${size} ${mode}`}
             {...props}
+            style={{
+                backgroundColor: bgColor,
+                color: txtColor,
+            }}
         >
             {label}
         </button>
     );
-};
+}

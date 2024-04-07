@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-
 import Header from "@/components/Layout/Header";
 import Hero from "@/components/Layout/Hero";
 import Footer from "@/components/Layout/Footer";
@@ -13,6 +12,7 @@ import CardSlider from "@/components/UI/CardSlider";
 import { Icon } from "@iconify/react";
 import { Parallax } from "react-parallax";
 import AnimatedImage from "@/components/UI/AnimatedImage";
+import Button from "@/components/UI/Button";
 
 export default function Home() {
     return (
@@ -310,15 +310,12 @@ export default function Home() {
                             laboris nisi ut aliquip ex ea commodo consequat. Duis aute
                             irure dolor in reprehenderit in voluptate
                         </p>
-                        {/* <Button
+                        <Button
                             label="Click me"
-                            backgroundColor="accent"
+                            backgroundColor="var(--accent)"
                             textColor="black"
                             primary={true}
-                        /> */}
-                        <button className="button button--medium bg-accent text-black hover:bg-black hover:text-accent button--primary">
-                            Click me
-                        </button>
+                        />
                     </div>
                 </Card>
             </div>
@@ -392,19 +389,10 @@ export default function Home() {
                         <Input
                             type="email"
                             placeholder="Enter your e-mail Address"
+                            label="Subscribe"
+                            icon="material-symbols:mail-outline"
                         ></Input>
-                        <div className="absolute top-2 right-8 grid grid-cols-[auto,_auto] gap-2 items-center">
-                            <Image
-                                src={"/mail.png"}
-                                width={31}
-                                height={23}
-                                alt="mail icon"
-                                className="opacity-50"
-                            />
-                            <button className="text-lg text-black opacity-20 hover:text-accent-secondary hover:opacity-85">
-                                Subscribe
-                            </button>
-                        </div>
+
                         <div className="flex gap-4 items-center mt-4">
                             <label className="label">
                                 <input type="checkbox" />
@@ -500,15 +488,12 @@ export default function Home() {
                                     ex ea commodo consequat. Duis aute irure dolor in
                                     reprehenderit in voluptate
                                 </p>
-                                {/* <Button
+                                <Button
                                     label="Click me"
-                                    backgroundColor="primary"
+                                    backgroundColor="var(--primary)"
                                     textColor="white"
                                     primary={true}
-                                /> */}
-                                <button className="button button--medium bg-primary text-white hover:bg-white hover:text-primary button--primary">
-                                    Click me
-                                </button>
+                                />
                             </div>
                         </div>
                     </div>
