@@ -281,7 +281,7 @@ export default function Home() {
                     </tbody>
                 </table>
             </div>
-            <div className="h-screen w-4/5 mx-auto grid grid-cols-2 py-40 gap-40">
+            <div className="mt-40 h-screen w-4/5 mx-auto grid grid-cols-2 gap-x-8">
                 <Card backgroundColor="bg-card">
                     <div className="h-1/2 w-full z-30 absolute">
                         <CardSlider className="-rotate-[20deg] z-10 top-64" />
@@ -455,24 +455,6 @@ export default function Home() {
                 />
                 <div className="w-3/5 mx-auto mt-40">
                     <div className="grid grid-cols-2">
-                        <div className="flex items-center">
-                            <div className="relative w-[20rem] ml-40 ">
-                                <Image
-                                    src={"/curve-text-sm.png"}
-                                    alt="curve text"
-                                    width={328}
-                                    height={238}
-                                    className="animate-spin-slow"
-                                />
-                                <Image
-                                    src={"/ellipse-sm.png"}
-                                    alt="ellipse"
-                                    width={212}
-                                    height={212}
-                                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                                />
-                            </div>
-                        </div>
                         <div>
                             <div className="mx-auto gap-4 *:mb-8 w-4/5">
                                 <h5>Who we are</h5>

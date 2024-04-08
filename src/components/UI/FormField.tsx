@@ -3,6 +3,7 @@ import Button from "./Button";
 import Input from "./Input";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 
 export default function FormField() {
     const [name, setName] = useState("");
@@ -11,34 +12,54 @@ export default function FormField() {
     const [text, setText] = useState("");
 
     const [checkbox, setCheckbox] = useState(false);
-    const [nameInput, setNameInput] = useState(false);
-    const [numberInput, setNumberInput] = useState(false);
-    const [emailInput, setEmailInput] = useState(false);
-    const [textInput, setTextInput] = useState(false);
+    const [nameFilled, setNameFilled] = useState(false);
+    const [numberFilled, setNumberFilled] = useState(false);
+    const [emailFilled, setEmailFilled] = useState(false);
+    const [textFilled, setTextFilled] = useState(false);
 
     const nameRef = useRef<HTMLInputElement>(null);
     const numberRef = useRef<HTMLInputElement>(null);
     const emailRef = useRef<HTMLInputElement>(null);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
+    const [phoneNumber, setPhoneNumber] = useState("");
+
+    const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        let inputPhoneNumber = event.target.value;
+
+        // Remove all non-digit characters
+        inputPhoneNumber = inputPhoneNumber.replace(/\D/g, "");
+
+        // Parse the input as a phone number
+        const parsedPhoneNumber = parsePhoneNumberFromString(inputPhoneNumber, "NL");
+
+        // Format the phone number
+        if (parsedPhoneNumber) {
+            const formattedPhoneNumber = parsedPhoneNumber.formatNational();
+            setPhoneNumber(formattedPhoneNumber);
+        } else {
+            setPhoneNumber(inputPhoneNumber);
+        }
+    };
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        // Here you can handle your form submission logic
+        // Check if every form is filled in
         if (
             nameRef.current?.value ||
             numberRef.current?.value ||
             emailRef.current?.value ||
             textAreaRef.current?.value
         ) {
-            if (!nameRef.current?.value) setNameInput(true);
-            if (!numberRef.current?.value) setNumberInput(true);
-            if (!emailRef.current?.value) setEmailInput(true);
-            if (!numberRef.current?.value) setTextInput(true);
+            if (!nameRef.current?.value) setNameFilled(true);
+            if (!numberRef.current?.value) setNumberFilled(true);
+            if (!emailRef.current?.value) setEmailFilled(true);
+            if (!numberRef.current?.value) setTextFilled(true);
         }
 
-        // Reset the form after submission
-        if (nameInput && numberInput && emailInput && textInput) {
+        // Reset the form after submission and POST?
+        if (nameFilled && numberFilled && emailFilled && textFilled) {
             console.log("Form submitted!");
             console.log("Name:", nameRef.current?.value);
             console.log("Number:", numberRef.current?.value);
@@ -78,6 +99,7 @@ export default function FormField() {
                         ref={nameRef}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        autoComplete="name"
                     />
                     <span
                         className={`text-red-500 font-[roboto-serif] ${checkbox && !name ? "" : "invisible"}`}
@@ -87,15 +109,16 @@ export default function FormField() {
                 </div>
                 <div>
                     <Input
-                        type="number"
-                        placeholder="Number"
+                        type="tel"
+                        placeholder="(XX) XXXX-XXXX"
                         icon="ic:round-phone-in-talk"
                         iconPosition="left"
                         iconSize="lg"
                         iconColor="black"
-                        value={number}
-                        onChange={(e) => setNumber(e.target.value)}
+                        value={phoneNumber}
+                        onChange={handlePhoneNumberChange}
                         ref={numberRef}
+                        autoComplete="tel"
                     />
                     <span
                         className={`text-red-500 font-[roboto-serif] ${checkbox && !number ? "" : "invisible"}`}
@@ -114,6 +137,7 @@ export default function FormField() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         ref={emailRef}
+                        autoComplete="email"
                     />
                     <span
                         className={`text-red-500 font-[roboto-serif] ${checkbox && !email ? "" : "invisible"}`}
