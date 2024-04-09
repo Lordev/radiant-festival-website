@@ -3,7 +3,7 @@ import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import Image from "next/image";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import FormField from "@/components/UI/FormField";
+import FormFieldContact from "@/components/UI/FormFieldContact";
 
 export default function Contact() {
     return (
@@ -28,8 +28,10 @@ export default function Contact() {
             <div className="w-3/5 mx-auto grid grid-cols-[1fr_2fr] gap-20 my-40 ">
                 <div>
                     <div className="*:mb-8">
-                        <h5>Any Questions</h5>
-                        <h1>Any Questions? Get in Touch!</h1>
+                        <h5 className="text-secondary-foreground">Any Questions</h5>
+                        <h1 className="text-secondary-foreground">
+                            Any Questions? Get in Touch!
+                        </h1>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                             do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -65,7 +67,7 @@ export default function Contact() {
                         </div>
                     </div>
                 </div>
-                <FormField />
+                <FormFieldContact />
             </div>
             <Footer />
         </div>

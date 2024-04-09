@@ -5,9 +5,9 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 
-export default function FormField() {
+export default function FormFieldContact() {
     const [name, setName] = useState("");
-    const [number, setNumber] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [text, setText] = useState("");
 
@@ -21,8 +21,6 @@ export default function FormField() {
     const numberRef = useRef<HTMLInputElement>(null);
     const emailRef = useRef<HTMLInputElement>(null);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
-
-    const [phoneNumber, setPhoneNumber] = useState("");
 
     const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         let inputPhoneNumber = event.target.value;
@@ -50,35 +48,38 @@ export default function FormField() {
             nameRef.current?.value ||
             numberRef.current?.value ||
             emailRef.current?.value ||
-            textAreaRef.current?.value
+            textAreaRef.current?.value ||
+            checkbox
         ) {
-            if (!nameRef.current?.value) setNameFilled(true);
-            if (!numberRef.current?.value) setNumberFilled(true);
-            if (!emailRef.current?.value) setEmailFilled(true);
-            if (!numberRef.current?.value) setTextFilled(true);
+            if (nameRef.current?.value) setNameFilled(true);
+            if (numberRef.current?.value) setNumberFilled(true);
+            if (emailRef.current?.value) setEmailFilled(true);
+            if (numberRef.current?.value) setTextFilled(true);
+            if (!checkbox) alert("please agree to the privacy policy");
         }
 
         // Reset the form after submission and POST?
-        if (nameFilled && numberFilled && emailFilled && textFilled) {
+        if (nameFilled && numberFilled && emailFilled && textFilled && checkbox) {
             console.log("Form submitted!");
             console.log("Name:", nameRef.current?.value);
             console.log("Number:", numberRef.current?.value);
             console.log("Email:", emailRef.current?.value);
             console.log("Text:", textAreaRef.current?.value);
 
+            alert(
+                "Thank you for submitting you message, we'll try to respond as fast as possible"
+            );
+
             setName("");
-            setNumber("");
+            setPhoneNumber("");
             setEmail("");
             setText("");
+            setCheckbox(false);
         }
     };
 
     const handleCheckbox = () => {
-        setCheckbox(true);
-    };
-
-    const handleButton = () => {
-        if (!checkbox) alert("please agree to the privacy policy");
+        setCheckbox(!checkbox);
     };
 
     return (
@@ -121,7 +122,7 @@ export default function FormField() {
                         autoComplete="tel"
                     />
                     <span
-                        className={`text-red-500 font-[roboto-serif] ${checkbox && !number ? "" : "invisible"}`}
+                        className={`text-red-500 font-[roboto-serif] ${checkbox && !phoneNumber ? "" : "invisible"}`}
                     >
                         The field is required
                     </span>
@@ -180,11 +181,14 @@ export default function FormField() {
                         primary={true}
                         type="submit"
                         form="myForm"
-                        onClick={handleButton}
                     />
                     <div className="flex flex-col items-center mt-4">
                         <label className="label">
-                            <input type="checkbox" required onClick={handleCheckbox} />
+                            <input
+                                type="checkbox"
+                                onChange={handleCheckbox}
+                                checked={checkbox}
+                            />
                             <span className="text-primary-foreground ml-2 font-[roboto-serif]">
                                 I agree to the privacy policy
                             </span>

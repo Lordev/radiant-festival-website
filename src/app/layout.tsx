@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Kumbh_Sans, Roboto_Serif, Krona_One } from "next/font/google";
 import "./globals.css";
+import MenuProvider from "./context/useContextMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 const kumbhSans = Kumbh_Sans({ subsets: ["latin"] });
@@ -27,7 +28,7 @@ export default function RootLayout({
                 ${kronaOne.className}
                 `}
             >
-                {children}
+                <MenuProvider>{children}</MenuProvider>
             </body>
         </html>
     );

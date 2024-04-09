@@ -1,5 +1,5 @@
 import { Icon, IconifyIcon } from "@iconify/react/dist/iconify.js";
-import { InputHTMLAttributes, forwardRef } from "react";
+import { InputHTMLAttributes, forwardRef, MouseEvent } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     type: string;
@@ -9,6 +9,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     iconSize?: "sm" | "lg";
     iconPosition?: "left" | "right";
     iconColor?: string;
+    onButtonClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 }
 
 export default forwardRef(function Input(
@@ -20,6 +21,7 @@ export default forwardRef(function Input(
         iconSize,
         iconPosition,
         iconColor,
+        onButtonClick,
         ...rest
     }: InputProps,
     ref: React.Ref<HTMLInputElement>
@@ -47,7 +49,7 @@ export default forwardRef(function Input(
                 {...rest}
             />
             {icon && label ? (
-                <a href="#">
+                <a href="" onClick={onButtonClick}>
                     <div className="absolute top-2 right-8 grid grid-cols-[auto,_auto] items-center group gap-1">
                         <Icon
                             icon={icon}

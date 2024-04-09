@@ -88,7 +88,7 @@ export default function Home() {
                     className="left-0 absolute"
                     animation="translateX(-200px)"
                 />
-                <div className="w-4/5 mx-auto">
+                <div className="w-3/5 mx-auto">
                     <div className="text-center *:mb-4 text-secondary-foreground">
                         <h5>Hard liquors</h5>
                         <h1>Our Alcohol Card</h1>
