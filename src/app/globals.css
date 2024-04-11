@@ -18,7 +18,7 @@
         --primary: #2f4858;
         --primary-foreground: #807d74;
 
-        --secondary: 210 40% 96.1%;
+        --secondary: #9E6C4D;
         --secondary-foreground: #4b4737;
 
         --muted: 210 40% 96.1%;
@@ -45,7 +45,7 @@
         @apply border-border;
     }
     body {
-        @apply bg-background text-foreground ;
+        @apply bg-secondary-foreground text-foreground;
     }
 
     p {
@@ -57,7 +57,7 @@
     }
 
     h2 {
-        @apply font-medium text-[76px] uppercase text-black
+        @apply font-medium text-[76px] uppercase text-black;
     }
 
     h3 {
@@ -81,11 +81,11 @@
     }
 
     textarea {
-        @apply border-secondary-foreground border-[1px] p-2 overflow-auto outline-none shadow-none resize-none text-card-dark text-[16px]
+        @apply border-secondary-foreground border-[1px] p-2 overflow-auto outline-none shadow-none resize-none text-card-dark text-[16px];
     }
 
     input {
-        @apply font-[roboto-serif]
+        @apply font-[roboto-serif];
     }
 }
 
@@ -101,6 +101,7 @@ textarea {
         color: var(--primary);
         left: 0;
         right: 0;
+        
     }
 
     .swiper-slide-next.custom-slide,
@@ -119,8 +120,6 @@ textarea {
     --swiper-pagination-bullet-size: 12px;
     --swiper-pagination-color: var(--primary);
     --swiper-pagination-bullet-inactive-color: #000;
-
-    
 }
 
 #card-slider {
@@ -162,19 +161,17 @@ textarea {
     height: 25px;
     width: 25px;
     background-color: transparent;
-    border: 1px solid #000 ;
-    
+    border: 1px solid #000;
 }
 
 /* On mouse-over, add a grey background color */
 .label:hover input ~ .checkmark {
-    background-color: var(--foreground)
+    background-color: var(--foreground);
 }
 
 /* When the checkbox is checked, add a blue background */
 .label input:checked ~ .checkmark {
-  background-color: var(--foreground)
-
+    background-color: var(--foreground);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -203,13 +200,46 @@ textarea {
 }
 
 .custom-input:focus {
-  background-color: transparent; /* Background color on focus */
-  border-color: dodgerblue; /* Border color on focus */
-  outline: none; /* Remove the default focus outline */
+    background-color: transparent; /* Background color on focus */
+    border-color: dodgerblue; /* Border color on focus */
+    outline: none; /* Remove the default focus outline */
 }
 
 /* Overwrite the autofill styles */
 .custom-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px var(--background) inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px var(--background) inset !important;
 }
 
+.custom-cursor {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.hover-effect {
+    transition: background-color 0.3s ease-in-out;
+}
+
+.hover-effect:hover {
+    background-color: #f0f0f0;
+}
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--foreground) var(--secondary-foreground);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--foreground)
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--foreground);
+    border-radius: 10px;
+    border: 1px solid var(--secondary-foreground);
+  }

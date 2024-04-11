@@ -7,7 +7,6 @@ import ArtistCard from "@/components/UI/ArtistCard";
 export default function Home() {
     return (
         <div className="bg-gradient-to-b from-accent-secondary  to-background from-0% to-45% overflow-hidden">
-            <Header />
             <div className="pt-64 text-center">
                 <h2>Artists</h2>
             </div>
@@ -75,7 +74,6 @@ export default function Home() {
             <div className="-rotate-3 mt-40 -mx-4 mb-52">
                 <BannerSlider />
             </div>
-            <Footer />
         </div>
     );
 }

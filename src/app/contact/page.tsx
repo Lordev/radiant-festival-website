@@ -7,9 +7,7 @@ import FormFieldContact from "@/components/UI/FormFieldContact";
 
 export default function Contact() {
     return (
-        <div className="bg-gradient-to-b from-background via-accent-secondary to-background from-15% to-50% overflow-hidden">
-            <Header />
-
+        <div className="bg-gradient-to-b from-background via-accent-secondary to-background from-20% to-60% overflow-hidden">
             <div className="pt-64 pb-40 text-center">
                 <h2>Contact</h2>
             </div>
@@ -69,7 +67,6 @@ export default function Contact() {
                 </div>
                 <FormFieldContact />
             </div>
-            <Footer />
         </div>
     );
 }

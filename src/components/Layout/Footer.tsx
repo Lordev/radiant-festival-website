@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
     return (
-        <div className="bg-black">
+        <footer className="bg-black">
             <div className="w-1/2 mx-auto pt-40">
                 <div className="text-4xl font-medium text-foreground uppercase max-w-[490px]">
                     OuR music Festival is <br />
@@ -53,6 +53,6 @@ export default function Footer() {
                 <hr className="border-t-[1px] border-white mt-20" />
                 <p className="pt-4 pb-16">Copyright by &copy; Musicfestival 2024</p>
             </div>
-        </div>
+        </footer>
     );
 }

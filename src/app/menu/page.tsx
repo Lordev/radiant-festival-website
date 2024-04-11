@@ -4,12 +4,11 @@ import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import Card from "@/components/UI/Card";
 import MenuCardItem from "@/components/UI/MenuCardItem";
-import AnimatedImage from "@/components/UI/AnimatedImage";
+import AnimatedImage from "@/components/UI/ImageWithObserver";
 
 export default function Home() {
     return (
         <div className="bg-gradient-to-b from-background via-accent-secondary to-background from-20% via-50% to-60% overflow-hidden">
-            <Header />
             <div className="pt-64 text-center">
                 <h2>Menu</h2>
             </div>
@@ -224,7 +223,6 @@ export default function Home() {
                     </div>
                 </Card>
             </div>
-            <Footer />
         </div>
     );
 }

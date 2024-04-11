@@ -1,19 +1,25 @@
 "use client";
 import { Navigation, A11y, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export default function GallerySlider() {
+    const [swiperLoaded, setSwiperLoaded] = useState(false);
+
+    const handleLoad = () => {
+        setSwiperLoaded(true);
+    };
+
     const buttonStyling =
         "text-white w-10 h-10 absolute cursor-pointer block transition-transform duration-2500";
 
-    const slideContainer = "text-center mb-16 overflow-hidden";
+    const slideContainer = "text-center mb-16 overflow-hidden ";
 
-    const slides =
-        "object-fit h-full w-full hover:scale-105 transform-translate duration-500 ease-in-out";
+    const slides = "w-full hover:scale-105 transform-translate duration-500 ease-in-out";
 
     return (
         <Swiper
@@ -27,9 +33,9 @@ export default function GallerySlider() {
                 prevEl: ".custom-prev",
             }}
             pagination={{ clickable: true }}
-            onSwiper={(swiper: any) => console.log(swiper)}
-            className="relative"
+            className={`relative ${swiperLoaded ? "block" : "invisible "}`}
             id="gallery-slider"
+            onInit={() => handleLoad()}
         >
             <SwiperSlide className={` custom-slide ${slideContainer}`}>
                 <Image

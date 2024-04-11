@@ -2,21 +2,23 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import Image from "next/image";
 
-interface AnimatedImageProps {
+interface ImageWithObserverProps {
     src: string;
     width: number;
     height: number;
     className: string;
-    animation: string;
+    animation?: string;
+    animationTiming?: number;
 }
 
-export default function AnimatedImage({
+export default function ImageWithObserver({
     src,
     width,
     height,
     className,
     animation,
-}: AnimatedImageProps) {
+    animationTiming = 0.9,
+}: ImageWithObserverProps) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     return (
@@ -28,13 +30,12 @@ export default function AnimatedImage({
                 height={height}
                 className={className}
                 style={{
-                    transform: isInView ? "none" : animation,
+                    transform: isInView ? "" : animation,
                     opacity: isInView ? 1 : 0,
-                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                    transition: `all ${animationTiming}s cubic-bezier(0.17, 0.55, 0.55, 1) .1s`,
                 }}
                 ref={ref}
             />
-    
         </>
     );
 }
