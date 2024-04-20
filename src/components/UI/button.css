@@ -7,10 +7,6 @@
     letter-spacing: 2.5px;
 }
 
-
-.button--primary {
-}
-
 .button--secondary {
     background-color: transparent;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;

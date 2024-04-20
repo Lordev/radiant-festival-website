@@ -49,20 +49,16 @@ export default function Button({
         setHovered(false);
     };
 
-    const mode = primary ? "button--primary" : "button--secondary";
-    const bgColor = hovered ? textColor : backgroundColor;
-    const txtColor = hovered ? backgroundColor : textColor;
-
     return (
         <button
             onMouseEnter={handleHoverEnter}
             onMouseLeave={handleHoverLeave}
             type="button"
-            className={`button button--${size} ${mode}`}
+            className={`button button--${size}`}
             {...props}
             style={{
-                backgroundColor: bgColor,
-                color: txtColor,
+                backgroundColor: primary ? (hovered ? textColor : backgroundColor) : "",
+                color: hovered ? backgroundColor : textColor,
             }}
         >
             {label}

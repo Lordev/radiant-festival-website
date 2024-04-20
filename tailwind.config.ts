@@ -10,11 +10,39 @@ const config = {
     ],
     prefix: "",
     theme: {
+        fontSize: {
+            xs: ["12px", "14px"],
+            sm: ["14px", "16px"],
+            normal: ["16px", "18px"],
+            lg: ["20px", "28px"],
+            xl: ["24px", "32px"],
+            "2xl": ["28px", "35px"],
+            "3xl": ["35px", "39px"],
+            "4xl": ["38px", "43px"],
+            "5xl": ["42px", "46px"],
+            "6xl": ["46px", "50px"],
+            "7xl": ["50px", "54px"],
+            "8xl": ["55px", "60px"],
+            "9xl": ["70px", "85px"],
+            "10xl": ["80px", "90px"],
+        },
+        screens: {
+            xs: "480px",
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1280px",
+            "2xl": "1536px",
+            "3xl": "1800px",
+            "4xl": "2000px",
+
+            // IF CHANGES: ALSO CHANGE UseScreenBreakPoints.tsx
+        },
         container: {
             center: true,
             padding: "2rem",
             screens: {
-                "2xl": "1400px",
+                "2xl": "1563px",
             },
         },
         extend: {
@@ -34,7 +62,7 @@ const config = {
                     foreground: "var(--primary-foreground)",
                 },
                 secondary: {
-                    DEFAULT: "var(--secondary)",
+                    DEFAULT: "hsl(var(--secondary))",
                     foreground: "var(--secondary-foreground)",
                 },
                 destructive: {
@@ -48,6 +76,7 @@ const config = {
                 accent: {
                     DEFAULT: "var(--accent)",
                     secondary: "var(--accent-secondary)",
+                    tertiary: "var(--accent-tertiary)",
                 },
                 popover: {
                     DEFAULT: "hsl(var(--popover))",

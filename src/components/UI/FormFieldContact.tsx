@@ -86,7 +86,7 @@ export default function FormFieldContact() {
         <form
             id="myForm"
             onSubmit={handleSubmit}
-            className="grid grid-cols-2 gap-20 mt-10"
+            className="lg:grid lg:grid-cols-2 gap-8 mt-10"
         >
             <div className="flex flex-col gap-8">
                 <div>
@@ -147,7 +147,7 @@ export default function FormFieldContact() {
                     </span>
                 </div>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col mt-20 lg:mt-0">
                 <div className="flex items-center gap-4">
                     <Icon
                         icon={"clarity:note-edit-line"}
@@ -160,9 +160,8 @@ export default function FormFieldContact() {
                 </div>
                 <div>
                     <textarea
-                        cols={80}
-                        rows={10}
-                        className="bg-transparent font-[roboto-serif] mt-4"
+                        rows={13}
+                        className="bg-transparent font-[roboto-serif] mt-4 w-full"
                         value={text}
                         onChange={(e) => setText(e.target.value)}
                         ref={textAreaRef}

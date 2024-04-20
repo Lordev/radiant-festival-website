@@ -1,13 +1,14 @@
-"use client";
 import { Navigation, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import IconFacebook from "../Svg/IconFacebook";
+import IconYouTube from "../Svg/IconYouTube";
+import IconInstagramRound from "../Svg/IconInstagramRound";
 
 export default function ArtistSlider() {
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0); // State to hold the current slide index
@@ -61,7 +62,7 @@ export default function ArtistSlider() {
 
     return (
         <>
-            <div className="w-96">
+            <div className="w-96 order-2 mt-32 lg:order-1 mx-auto lg:m-0 ">
                 <Swiper
                     modules={[Navigation, A11y]}
                     spaceBetween={50}
@@ -92,7 +93,7 @@ export default function ArtistSlider() {
                         </SwiperSlide>
                     ))}
 
-                    <div className="absolute bottom-2 flex gap-8 w-fit">
+                    <div className="absolute bottom-2 flex gap-8 ">
                         <div
                             className={`custom-prev swiper-button-prev hover:-translate-x-0.5 ${buttonStyling}`}
                         ></div>
@@ -102,53 +103,56 @@ export default function ArtistSlider() {
                     </div>
                 </Swiper>
             </div>
-            <div className="flex flex-col px-5 uppercase text-[#9E6C4D] gap-16 justify-center">
-                <div className="w-40 h-20 relative">
-                    <div className="w-full text-4xl font-bold transition-opacity duration-500 transform hover:opacity-100">
-                        Artist{" "}
-                    </div>
-                    {slidesContent.map((slide, index) => (
-                        <div
-                            key={slide.artist}
-                            className={`transition-opacity duration-700 transform absolute w-full text-base font-medium ${currentSlideIndex === index ? "opacity-100" : "opacity-0"}`}
-                        >
-                            {slide.artist}
+            <div className="flex gap-8 order-1 lg:order-2 mx-auto lg:m-0 lg:flex-row flex-col items-center lg:items-start text-center">
+                <div className="flex flex-col px-5 uppercase text-[#9E6C4D] gap-8 lg:mt-20">
+                    <div className="w-40 h-20 relative">
+                        <div className="w-full text-4xl font-bold transition-opacity duration-500 transform hover:opacity-100">
+                            Artist{" "}
                         </div>
+                        {slidesContent.map((slide, index) => (
+                            <div
+                                key={slide.artist}
+                                className={`transition-opacity duration-700 transform absolute w-full text-base font-medium ${currentSlideIndex === index ? "opacity-100" : "opacity-0"}`}
+                            >
+                                {slide.artist}
+                            </div>
+                        ))}
+                    </div>
+                    <div className="flex lg:flex-col gap-4 justify-center lg:justify-start">
+                        <a href={slidesContent[currentSlideIndex].facebookUrl}>
+                            <IconFacebook
+                                width={35}
+                                height={35}
+                                className="text-secondary-foreground
+                            hover:text-accent-tertiary"
+                            />
+                        </a>
+                        <a href={slidesContent[currentSlideIndex].youtubeUrl}>
+                            <IconYouTube
+                                width={35}
+                                height={35}
+                                className="text-secondary-foreground hover:text-accent"
+                            />
+                        </a>
+                        <a href={slidesContent[currentSlideIndex].instagramUrl}>
+                            <IconInstagramRound
+                                width={35}
+                                height={35}
+                                className="text-secondary-foreground hover:text-accent-secondary"
+                            />
+                        </a>
+                    </div>
+                </div>
+                <div className="relative w-80">
+                    {slidesContent.map((slide, index) => (
+                        <p
+                            key={slide.artist}
+                            className={`absolute inset-0 lg:mt-20 transition-opacity duration-700 ${currentSlideIndex === index ? "opacity-100" : "opacity-0"}`}
+                        >
+                            {slide.description}
+                        </p>
                     ))}
                 </div>
-                <div className="flex flex-col gap-4">
-                    <a href={slidesContent[currentSlideIndex].facebookUrl}>
-                        <Icon
-                            icon="ic:baseline-facebook"
-                            width={40}
-                            className="text-secondary-foreground hover:text-primary"
-                        />
-                    </a>
-                    <a href={slidesContent[currentSlideIndex].youtubeUrl}>
-                        <Icon
-                            icon="mdi:youtube"
-                            width={40}
-                            className="text-secondary-foreground hover:text-primary"
-                        />
-                    </a>
-                    <a href={slidesContent[currentSlideIndex].instagramUrl}>
-                        <Icon
-                            icon="mdi:instagram"
-                            width={40}
-                            className="text-secondary-foreground hover:text-primary"
-                        />
-                    </a>
-                </div>
-            </div>
-            <div className="relative w-80">
-                {slidesContent.map((slide, index) => (
-                    <p
-                        key={slide.artist}
-                        className={`absolute top-40 inset-0 transition-all duration-700 ${currentSlideIndex === index ? "opacity-100" : "opacity-0"}`}
-                    >
-                        {slide.description}
-                    </p>
-                ))}
             </div>
         </>
     );

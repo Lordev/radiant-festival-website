@@ -19,19 +19,19 @@ export default function MenuCardItem({
 
     return (
         <div
-            className={`grid grid-cols-[auto_1fr_auto] gap-x-4 mt-10 items-end text-nowrap`}
+            className={`xs:grid xs:grid-cols-[auto_1fr_auto] gap-x-4 mt-10 items-end text-balance xs:text-nowrap`}
         >
             <div>
                 <h4 style={{ color }}>{title}</h4>
             </div>
             <div
-                className="tracking-[3px] after:content-['.....................................................................'] overflow-hidden white-space-nowrap after:opacity-20"
+                className="tracking-[3px] xs:after:content-['.....................................................................'] overflow-hidden white-space-nowrap after:opacity-20"
                 style={{ color }}
             ></div>
-            <h4 className=" text-nowrap" style={{ color }}>
+            <h4 style={{ color }}>
                 ${price % 1 === 0 ? price.toFixed(0) + ".00" : price.toFixed(2)}
             </h4>
-            <p>{description}</p>
+            <p className="text-wrap">{description}</p>
         </div>
     );
 }

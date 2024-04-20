@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Countdown, { zeroPad } from "react-countdown";
+import Container from "@/components/UI/Container";
 
 interface CountdownSettingsProps {
     days: number;
@@ -27,7 +28,7 @@ const renderer = ({
     } else {
         // Render a countdown
         return (
-            <span className="text-5xl font-semibold text-center text-white uppercase max-w-[362px]">
+            <span className="text-2xl font-semibold text-center text-white uppercase max-w-[362px] lg:text-5xl">
                 {zeroPad(days)} : {zeroPad(hours)} : {zeroPad(minutes)} :{" "}
                 {zeroPad(seconds)}
             </span>
@@ -37,8 +38,8 @@ const renderer = ({
 
 export default function Hero() {
     return (
-        <div className="bg-hero bg-no-repeat h-screen bg-cover flex items-end">
-            <div className="w-1/2 mx-auto h-3/4 flex-col flex justify-center gap-40 items-center">
+        <Container className="bg-hero bg-no-repeat bg-cover">
+            <div className=" h-screen  items-center justify-center flex flex-col gap-40 pt-40 text-balance">
                 <div className="text-7xl text-center text-yellow-400 uppercase max-w-[885px] max-md:text-4xl">
                     <span className="text-amber-100">This music Festival</span>{" "}
                     <span className="text-amber-100">will</span>
@@ -49,6 +50,6 @@ export default function Hero() {
                 </div>
                 <Image src="/scroll-icon.png" alt="scroll-icon" width={52} height={64} />
             </div>
-        </div>
+        </Container>
     );
 }

@@ -62,11 +62,7 @@ export default forwardRef(function Input(
                         </span>
                     </div>
                 </a>
-            ) : (
-                ""
-            )}
-
-            {icon && !label ? (
+            ) : icon && !label ? (
                 <div
                     className={`absolute grid grid-cols-[auto,_auto] items-center group gap-1 ${IconPlace()}`}
                 >
@@ -78,7 +74,7 @@ export default forwardRef(function Input(
                             iconColor
                                 ? ""
                                 : `text-secondary-foreground opacity-20 group-hover:text-accent-secondary 
-            group-hover:opacity-85`
+                                group-hover:opacity-85`
                         }
                     />
                 </div>

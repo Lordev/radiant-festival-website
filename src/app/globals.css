@@ -10,42 +10,27 @@
 
         --card: #fecb00;
         --card-dark: #353535;
-        --card-foreground: 222.2 84% 4.9%;
-
-        --popover: 0 0% 100%;
-        --popover-foreground: 222.2 84% 4.9%;
 
         --primary: #2f4858;
         --primary-foreground: #807d74;
 
-        --secondary: #9E6C4D;
+        --secondary: #9e6c4d;
         --secondary-foreground: #4b4737;
-
-        --muted: 210 40% 96.1%;
-
-        --muted-foreground: 215.4 16.3% 46.9%;
-
+        
         --accent: #fecb00;
         --accent-secondary: #f12aac;
-        --accent-foreground: 222.2 47.4% 11.2%;
-
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 210 40% 98%;
-
-        --border: 214.3 31.8% 91.4%;
-        --input: 214.3 31.8% 91.4%;
-        --ring: 222.2 84% 4.9%;
-
-        --radius: 0.5rem;
-    }
+        --accent-tertiary: #007BFE;
+        --tw-space-x-reverse: 0.1rem;
+            }
 }
 
 @layer base {
     * {
         @apply border-border;
     }
+
     body {
-        @apply bg-secondary-foreground text-foreground;
+        @apply bg-secondary-foreground text-foreground lg:text-normal text-sm;
     }
 
     p {
@@ -53,27 +38,27 @@
     }
 
     h1 {
-        @apply font-[roboto-serif] font-medium text-[40px]  uppercase leading-[45px];
+        @apply font-[roboto-serif] font-medium text-2xl lg:text-5xl  uppercase tracking-wider;
     }
 
     h2 {
-        @apply font-medium text-[76px] uppercase text-black;
+        @apply font-medium text-5xl sm:text-9xl uppercase text-black;
     }
 
     h3 {
-        @apply font-[roboto-serif] font-medium text-[32px]  uppercase;
+        @apply font-[roboto-serif] font-medium text-3xl  uppercase;
     }
 
     h4 {
-        @apply font-[roboto-serif] font-medium text-[24px]  uppercase;
+        @apply font-[roboto-serif] font-medium xl:text-xl text-lg uppercase ;
     }
 
     h5 {
-        @apply font-[roboto-serif] font-medium text-sm  tracking-[.6rem] uppercase;
+        @apply font-[roboto-serif] font-medium text-sm  uppercase tracking-[.5rem];
     }
 
     h6 {
-        @apply font-[roboto-serif] font-medium text-[16px]  uppercase;
+        @apply font-[roboto-serif] font-medium text-lg  uppercase xl:text-normal;
     }
 
     th {
@@ -101,7 +86,6 @@ textarea {
         color: var(--primary);
         left: 0;
         right: 0;
-        
     }
 
     .swiper-slide-next.custom-slide,
@@ -223,23 +207,61 @@ textarea {
 }
 
 /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
+/* Firefox */
+* {
     scrollbar-width: thin;
-    scrollbar-color: var(--foreground) var(--secondary-foreground);
-  }
+    scrollbar-color: var(--primary-foreground) var(--secondary-foreground);
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
     width: 16px;
-  }
+}
 
-  *::-webkit-scrollbar-track {
-    background: var(--foreground)
-  }
+*::-webkit-scrollbar-track {
+    background: var(--foreground);
+}
 
-  *::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background-color: var(--foreground);
     border-radius: 10px;
     border: 1px solid var(--secondary-foreground);
-  }
+}
+
+.slider {
+        animation: slidein 30s linear infinite;
+        white-space: nowrap;
+}
+
+.slide-animation {
+    animation: fade-in 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+}
+
+@keyframes slidein {
+    from {
+        transform: translate3d(-100%, 0, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.sticky {
+    position: sticky;
+    top: 500px; /* Adjust as needed */
+    padding: 20px;
+    transition: top 0.3s ease-in-out;
+}
+
+.sticky.stuck {
+    top: calc(100vh - 100px); /* Adjust as needed */
+}

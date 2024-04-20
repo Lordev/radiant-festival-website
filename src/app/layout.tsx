@@ -4,6 +4,7 @@ import "./globals.css";
 import MenuProvider from "../context/useContextMenu";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
+import ScreenBreakPointProvider from "@/context/useScreenBreakPoints";
 const inter = Inter({ subsets: ["latin"] });
 const kumbhSans = Kumbh_Sans({ subsets: ["latin"] });
 const robotoSerif = Roboto_Serif({ subsets: ["latin"] });
@@ -29,11 +30,13 @@ export default function RootLayout({
                 ${kronaOne.className}
                 `}
             >
-                <MenuProvider>
-                    <Header />
-                    {children}
-                    <Footer />
-                </MenuProvider>
+                <ScreenBreakPointProvider>
+                    <MenuProvider>
+                        <Header />
+                        {children}
+                        <Footer />
+                    </MenuProvider>
+                </ScreenBreakPointProvider>
             </body>
         </html>
     );

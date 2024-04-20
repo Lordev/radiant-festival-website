@@ -4,12 +4,12 @@ export default function Footer() {
     return (
         <footer className="bg-black">
             <div className="w-1/2 mx-auto pt-40">
-                <div className="text-4xl font-medium text-foreground uppercase max-w-[490px]">
+                <div className="lg:text-4xl font-medium text-foreground uppercase max-w-[490px] text-balance xl:text-start text-center text-xl mx-auto xl:mx-0">
                     OuR music Festival is <br />
                     <span className="text-amber-200">the best of Europe</span>
                 </div>
-                <div className="flex justify-between mt-20">
-                    <ul className="flex gap-12 text-white text-sm">
+                <div className="flex justify-between mt-20 xl:flex-row flex-col gap-16 text-center">
+                    <ul className="flex xl:flex-row flex-col gap-12 text-white text-sm">
                         <a href="#">
                             <li className="uppercase">home</li>
                         </a>
@@ -23,7 +23,7 @@ export default function Footer() {
                             <li className="uppercase">buy tickets</li>
                         </a>
                     </ul>
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 justify-center">
                         <a href="#" className="href">
                             <Image
                                 src={"/facebook-icon-sm.png"}
@@ -51,7 +51,9 @@ export default function Footer() {
                     </div>
                 </div>
                 <hr className="border-t-[1px] border-white mt-20" />
-                <p className="pt-4 pb-16">Copyright by &copy; Musicfestival 2024</p>
+                <p className="pt-4 pb-16 text-center">
+                    Copyright by &copy; Musicfestival 2024
+                </p>
             </div>
         </footer>
     );

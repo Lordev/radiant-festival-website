@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Icon } from "@iconify/react/dist/iconify.js";
+import IconInstagram from "../Svg/IconInstagram";
+import IconTwitter from "../Svg/IconTwitter";
 
 interface ArtistCardProps {
     artistName: string;
@@ -27,21 +28,15 @@ export default function ArtistCard({
             />
             <div className="flex justify-between">
                 <div className="flex flex-col gap-2">
-                    <h4>{artistName}</h4>
+                    <h4 className="text-primary">{artistName}</h4>
                     <h5 className="text-primary">{role}</h5>
                 </div>
                 <div className="flex flex-col gap-2">
                     <a href={igUrl} target="_blank" rel="noopener noreferrer">
-                        <Icon
-                            icon={"gg:instagram"}
-                            className="w-6 h-6 text-black hover:text-accent-secondary transition-colors duration-100 ease-in"
-                        />
+                        <IconInstagram className="w-6 h-6 text-black hover:text-accent-secondary transition-colors duration-100 ease-in" />
                     </a>
                     <a href={twitterUrl} target="_blank" rel="noopener noreferrer">
-                        <Icon
-                            icon={"mdi:twitter"}
-                            className="w-6 h-6 text-black hover:text-accent-secondary transition-colors duration-100 ease-in"
-                        />
+                        <IconTwitter className="w-6 h-6 text-black hover:text-accent-secondary transition-colors duration-100 ease-in" />
                     </a>
                 </div>
             </div>

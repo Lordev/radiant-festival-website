@@ -1,16 +1,23 @@
-"use client";
 import { Autoplay, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 interface BannerSliderProps {
+    id: string;
     className?: string;
 }
 
-export default function BannerSlider({ className }: BannerSliderProps) {
+export default function BannerSlider({ className, id }: BannerSliderProps) {
+    const [swiperLoaded, setSwiperLoaded] = useState(false);
+
+    const handleLoad = () => {
+        setSwiperLoaded(true);
+    };
+
     const textStyle =
         "text-black font-semibold text-[50px] font-[kumbhsans] uppercase select-none ";
 
@@ -30,11 +37,12 @@ export default function BannerSlider({ className }: BannerSliderProps) {
                 disableOnInteraction: false,
                 reverseDirection: true,
             }}
-            className={`bg-white ${className}`}
-            id="Banner-slider"
+            id={id}
             grabCursor={false}
             allowTouchMove={false}
             noSwiping={true}
+            className={`relative bg-white  ${className} ${swiperLoaded ? "block" : "invisible "}`}
+            onInit={() => handleLoad()}
         >
             <SwiperSlide className={`custom-slide`}>
                 <div className={textStyle}>Check it out</div>
