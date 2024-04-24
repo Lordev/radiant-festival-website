@@ -1,18 +1,17 @@
-import { Navigation, A11y } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { A11y, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import IconFacebook from "../Svg/IconFacebook";
-import IconYouTube from "../Svg/IconYouTube";
 import IconInstagramRound from "../Svg/IconInstagramRound";
+import IconYouTube from "../Svg/IconYouTube";
 
 export default function ArtistSlider() {
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0); // State to hold the current slide index
-
     const slidesContent = [
         {
             artist: "Mark the Twinley",
@@ -30,7 +29,7 @@ export default function ArtistSlider() {
             youtubeUrl: "#",
             instagramUrl: "#",
             description:
-                "Rogue Wave is a dynamic duo known for their electrifying performances and experimental sound. Combining elements of rock, electronic, and indie music, they have carved a unique niche in the music scene. Fans describe their music as a journey through the depths of emotion, with each song leaving a lasting impact.",
+                "Rogue Wave is a dynamic duo known for their electrifying performances and experimental sound. Combining elements of rock, electronic, and indie  music, they have carved a unique niche in the music scene. Fans describe their music as a journey through the depths of emotion, with each song leaving a lasting impact.",
         },
         {
             artist: "Solar Flare",
@@ -58,11 +57,11 @@ export default function ArtistSlider() {
 
     const buttonStyling =
         "w-10 h-10 cursor-pointer block relative transition-transform duration-2500";
-    const slides = "flex flex-row mb-4";
+    const slides = "flex flex-row px-10 lg:px-0 lg:mb-16";
 
     return (
         <>
-            <div className="w-96 order-2 mt-32 lg:order-1 mx-auto lg:m-0 ">
+            <div className="xs:max-w-96 w-full order-2 mt-32 lg:order-1 mx-auto lg:m-0 ">
                 <Swiper
                     modules={[Navigation, A11y]}
                     spaceBetween={50}
@@ -73,10 +72,9 @@ export default function ArtistSlider() {
                         nextEl: ".custom-next",
                         prevEl: ".custom-prev",
                     }}
-                    onSwiper={(swiper: any) => console.log(swiper)}
                     onSlideChange={(swiper) => handleSlideChange(swiper)}
                     className="relative"
-                    id="quote-swiper"
+                    id="artist-slider"
                 >
                     {slidesContent.map((item, index) => (
                         <SwiperSlide
@@ -84,7 +82,7 @@ export default function ArtistSlider() {
                             className={`custom-slide ${slides}`}
                         >
                             <Image
-                                className="mb-16"
+                                className=""
                                 src={item.imgUrl}
                                 alt="slide-img"
                                 width={456}
@@ -93,7 +91,7 @@ export default function ArtistSlider() {
                         </SwiperSlide>
                     ))}
 
-                    <div className="absolute bottom-2 flex gap-8 ">
+                    <div className="absolute bottom-1/2 translate-y-1/2 flex justify-between w-full lg:w-fit z-20 lg:gap-8 lg:bottom-2">
                         <div
                             className={`custom-prev swiper-button-prev hover:-translate-x-0.5 ${buttonStyling}`}
                         ></div>

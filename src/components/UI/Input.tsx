@@ -34,7 +34,7 @@ export default forwardRef(function Input(
         }
         if (iconSize === "lg" && iconPosition === "left") {
             {
-                return "top-1 left-0";
+                return "bottom-0 left-0";
             }
         }
     };
@@ -43,21 +43,21 @@ export default forwardRef(function Input(
         <div className="relative">
             <input
                 type={type}
-                className={`appearance-none bg-transparent w-full text-gray-700 mr-3 py-2 focus:outline-none border-b-black border-b-[1px] text-lg placeholder:font-thin placeholder:text-black placeholder:opacity-20 custom-input font-sans ${indent}`}
+                className={`appearance-none bg-transparent w-full text-gray-700 mr-3 py-2 focus:outline-none border-b-black border-b-[1px] placeholder:font-thin placeholder:text-black placeholder:opacity-20 custom-input font-[robot-serif] placeholder:text-sm  sm:placeholder:text-lg  ${indent}`}
                 placeholder={placeholder}
                 ref={ref}
                 {...rest}
             />
             {icon && label ? (
                 <a href="" onClick={onButtonClick}>
-                    <div className="absolute top-2 right-8 grid grid-cols-[auto,_auto] items-center group gap-1">
+                    <div className="absolute top-0 right-0 grid grid-cols-[auto,_auto] items-center group gap-1 bg-background">
                         <Icon
                             icon={icon}
                             width={30}
                             className="text-secondary-foreground opacity-20 group-hover:text-accent-secondary 
-                        group-hover:opacity-85"
+                        group-hover:opacity-85 sm:w-[30px] w-[18px]"
                         />
-                        <span className="text-sm text-black opacity-20 group-hover:text-accent-secondary group-hover:opacity-85">
+                        <span className="text-xs sm:text-sm text-black opacity-20 group-hover:text-accent-secondary group-hover:opacity-85">
                             {label}
                         </span>
                     </div>

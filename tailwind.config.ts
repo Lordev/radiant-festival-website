@@ -10,6 +10,12 @@ const config = {
     ],
     prefix: "",
     theme: {
+        fontFamily: {
+            "krona-one": "var(--font-krona-one)",
+            "kumbh-sans": "var(--font-kumbh-sans)",
+            "roboto-serif": "var(--font-roboto-serif)",
+            inter: "var(--font-inter)",
+        },
         fontSize: {
             xs: ["12px", "14px"],
             sm: ["14px", "16px"],
@@ -27,6 +33,7 @@ const config = {
             "10xl": ["80px", "90px"],
         },
         screens: {
+            "2xs": "360px",
             xs: "480px",
             sm: "640px",
             md: "768px",
@@ -40,9 +47,17 @@ const config = {
         },
         container: {
             center: true,
-            padding: "2rem",
+            padding: "1rem",
             screens: {
-                "2xl": "1563px",
+                "2xs": "360px",
+                xs: "480px",
+                sm: "640px",
+                md: "768px",
+                lg: "1024px",
+                xl: "1280px",
+                "2xl": "1536px",
+                "3xl": "1800px",
+                "4xl": "2000px",
             },
         },
         extend: {
@@ -102,11 +117,21 @@ const config = {
                     from: { height: "var(--radix-accordion-content-height)" },
                     to: { height: "0" },
                 },
+                "slide-down": {
+                    from: { transform: "translateY(-100%)" },
+                    to: { transform: "translateY(0)" },
+                },
+                "slide-up": {
+                    from: { transform: "translateY(0)" },
+                    to: { transform: "translateY(-100%)" },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 "spin-slow": "spin 10s linear infinite",
+                "slide-down": "slide-down .1s ease-out",
+                "slide-up": "slide-up .3s forwards ease-in",
             },
         },
     },

@@ -6,9 +6,13 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import ScreenBreakPointProvider, {
+    useScreenBreakPoint,
+} from "@/context/useContextScreenBreakPoints";
 
 export default function GallerySlider() {
     const [swiperLoaded, setSwiperLoaded] = useState(false);
+    const { mobile, laptop, tablet } = useScreenBreakPoint();
 
     const handleLoad = () => {
         setSwiperLoaded(true);
@@ -25,7 +29,7 @@ export default function GallerySlider() {
         <Swiper
             modules={[Navigation, A11y, Pagination]}
             spaceBetween={10}
-            slidesPerView={3}
+            slidesPerView={!mobile ? 3 : 1}
             speed={800}
             loop={true}
             navigation={{
@@ -33,8 +37,11 @@ export default function GallerySlider() {
                 prevEl: ".custom-prev",
             }}
             pagination={{ clickable: true }}
-            className={`relative ${swiperLoaded ? "block" : "invisible "}`}
+            className={`relative ${swiperLoaded ? " block" : "invisible "}`}
             id="gallery-slider"
+            style={{
+                margin: !mobile ? "0 -500px" : "0",
+            }}
             onInit={() => handleLoad()}
         >
             <SwiperSlide className={` custom-slide ${slideContainer}`}>
@@ -66,7 +73,7 @@ export default function GallerySlider() {
             </SwiperSlide>
             <SwiperSlide className={` custom-slide ${slideContainer}`}>
                 <Image
-                    src="/gallery-img3.png"
+                    src="/gallery-img4.png"
                     alt="club photo"
                     className={slides}
                     height={641}
@@ -74,7 +81,7 @@ export default function GallerySlider() {
                 />
             </SwiperSlide>
 
-            <div className="absolute left-0 bottom-1/2">
+            {/* <div className="absolute left-0 bottom-1/2">
                 <div
                     className={`custom-prev swiper-button-prev hover:-translate-x-0.5 ${buttonStyling}`}
                 ></div>
@@ -83,7 +90,7 @@ export default function GallerySlider() {
                 <div
                     className={`custom-next swiper-button-next hover:translate-x-0.5 ${buttonStyling}`}
                 ></div>
-            </div>
+            </div> */}
         </Swiper>
     );
 }

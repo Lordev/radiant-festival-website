@@ -5,7 +5,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/UI/accordion";
-import { useScreenBreakPoint } from "@/context/useScreenBreakPoints";
+import { useScreenBreakPoint } from "@/context/useContextScreenBreakPoints";
 
 interface ScheduleItem {
     startTime: string;
@@ -236,38 +236,28 @@ const schedule: ScheduleProps[] = [
 ];
 
 export default function TimeTable() {
-    const { mobile } = useScreenBreakPoint();
+    const { smallMobile, mobile, tablet } = useScreenBreakPoint();
 
     const [day, setDay] = useState(1);
 
     return (
         <div>
-            {!mobile ? (
+            {!smallMobile && !mobile && !tablet ? (
                 <>
-                    <div className="grid grid-cols-3 border-b-2 border-primary pb-4">
-                        <div
-                            onClick={() => setDay(1)}
-                            className={`cursor-pointer   ${day === 1 ? "text-secondary-foreground" : "text-primary-foreground"}`}
-                        >
-                            {`DAY ${schedule[0].day}`}
-                            <br />
-                            may 01.2024
-                        </div>
-                        <div
-                            onClick={() => setDay(2)}
-                            className={`cursor-pointer   ${day === 2 ? "text-secondary-foreground" : "text-primary-foreground"}`}
-                        >
-                            {`DAY ${schedule[1].day}`}
-                            <br />
-                            may 02.2024
-                        </div>
-                        <div
-                            onClick={() => setDay(3)}
-                            className={`cursor-pointer ${day === 3 ? "text-secondary-foreground" : "text-primary-foreground"}`}
-                        >
-                            {`DAY ${schedule[2].day}`} <br />
-                            may 03.2024
-                        </div>
+                    <div className="grid grid-cols-3 border-b-2 border-primary pb-4 ">
+                        {schedule.map((item) => (
+                            <div
+                                key={item.day}
+                                onClick={() => setDay(item.day)}
+                                className={`cursor-pointer font-krona-one ${day === item.day ? "text-secondary-foreground" : "text-primary-foreground"}`}
+                            >
+                                {`DAY ${item.day}`}
+                                <br />
+                                <div className="font-kumbh-sans tracking-widest">
+                                    July 0{item.day}.2024
+                                </div>
+                            </div>
+                        ))}
                     </div>
 
                     <table className="text-secondary-foreground border-separate border-spacing-y-8 w-full table-fixed">
@@ -296,10 +286,10 @@ export default function TimeTable() {
                                                     {item.startTime} - {item.endTime}
                                                 </h6>
                                             </td>
-                                            <td className="text-nowrap font-[roboto-serif] font-medium text-xl  uppercase">
+                                            <td className="text-nowrap font-[roboto-serif] font-medium  text-lg 3xl:text-xl  uppercase">
                                                 <div>{item.artist}</div>
                                             </td>
-                                            <td className="text-nowrap font-[roboto-serif] font-medium text-xl  uppercase">
+                                            <td className="text-nowrap font-[roboto-serif] font-medium text-lg 3xl:text-xl  uppercase">
                                                 <div>{item.label}</div>
                                             </td>
                                         </tr>
@@ -314,7 +304,7 @@ export default function TimeTable() {
                         <AccordionItem key={`day-${item.day}`} value={`day-${item.day}`}>
                             <AccordionTrigger
                                 onClick={() => setDay(item.day)}
-                                className={`text-2xl ${day === item.day ? "text-secondary-foreground" : "text-primary-foreground"}`}
+                                className={`text-xl sm:text-2xl font-kumbh-sans ${day === item.day ? "text-secondary-foreground" : "text-primary-foreground"}`}
                             >{`DAY ${item.day}`}</AccordionTrigger>
                             {item.scheduleItems.map((scheduleItem) => (
                                 <AccordionContent
@@ -322,16 +312,14 @@ export default function TimeTable() {
                                     className="text-secondary-foreground"
                                 >
                                     <div key={scheduleItem.artist}>
-                                        <div className="text-nowrap ">
-                                            <h6 className="text-normal">
-                                                {scheduleItem.startTime} -{" "}
-                                                {scheduleItem.endTime}
-                                            </h6>
+                                        <div className="text-nowrap text-sm sm:text-normal font-thin font-roboto-serif">
+                                            {scheduleItem.startTime} -{" "}
+                                            {scheduleItem.endTime}
                                         </div>
-                                        <div className="text-nowrap font-[roboto-serif] font-medium text-lg uppercase">
+                                        <div className="text-nowrap font-[roboto-serif] font-medium text-normal sm:text-lg uppercase">
                                             <div>{scheduleItem.artist}</div>
                                         </div>
-                                        <div className="text-nowrap font-[roboto-serif] font-medium text-lg uppercase">
+                                        <div className="text-nowrap font-[roboto-serif] font-medium text-normal sm:text-lg uppercase">
                                             <div>{scheduleItem.label}</div>
                                         </div>
                                     </div>

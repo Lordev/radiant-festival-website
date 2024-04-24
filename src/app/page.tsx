@@ -15,15 +15,15 @@ import InfiniteSlider from "@/components/UI/InfiniteSlider";
 import Container from "@/components/UI/Container";
 import SpinningText from "@/components/UI/SpinningText";
 import Sticky from "react-stickynode";
-import ScreenBreakPointProvider, {
-    useScreenBreakPoint,
-} from "@/context/useScreenBreakPoints";
+import { useScreenBreakPoint } from "@/context/useContextScreenBreakPoints";
+import VideoPopUpPlayer from "@/components/UI/VideoPopupPlayer";
+import PrivacyPolicy from "@/components/Layout/PrivacyPolicy";
 
 export default function Home() {
-    const { mobile, tablet } = useScreenBreakPoint();
+    const { smallMobile, mobile, tablet, largeTablet } = useScreenBreakPoint();
 
     return (
-        <main className="bg-gradient-to-b from-background via-accent-secondary to-background from-35% to-65% lg:from-45% lg:to-65% overflow-hidden xl:from-40%">
+        <main className="bg-gradient-to-b from-background via-accent-secondary to-background from-35% to-65% lg:from-45% lg:to-60% overflow-hidden xl:from-35%">
             <Hero />
             <section>
                 <InfiniteSlider />
@@ -31,7 +31,7 @@ export default function Home() {
             <Container>
                 <ImageWithObserver
                     src="/leaf-1.png"
-                    className="right-0 absolute top-0"
+                    className="right-0 absolute top-4"
                     animation="translateX(100%)"
                     width={400}
                     height={557}
@@ -45,30 +45,30 @@ export default function Home() {
                 />
                 <ImageWithObserver
                     src="/leaf-5.png"
-                    className="left-0 absolute"
+                    className="left-0 top-4 absolute"
                     animation="translateX(-100%)"
                     width={176}
                     height={396}
                 />
                 <ImageWithObserver
                     src="/leaf-7.png"
-                    className="right-0 absolute bottom-0 ]"
+                    className="right-0 absolute bottom-0"
                     animation="translateX(100%)"
                     width={267}
                     height={709}
                 />
-                <div className="flex flex-col lg:flex-row gap-8 justify-center py-80">
+                <div className="flex flex-col lg:flex-row gap-8 justify-center py-60">
                     <ArtistSlider />
                 </div>
                 <PageDivider />
             </Container>
-            <Container className="mt-40" id="TableContainer">
+            <Container className="mt-8 lg:mt-40" id="TableContainer">
                 <div className="gap-x-8 grid xl:grid-cols-[minmax(480px,1fr)_2fr] grid-rows-[repeat(auto,2)] px-4 relative">
                     <Sticky
-                        enabled={!mobile && !tablet}
-                        top={100}
+                        enabled={window.innerWidth > 1280}
+                        top={400}
                         bottomBoundary="#TableContainer"
-                        className="justify-center flex xl:justify-start pb-20"
+                        className=""
                     >
                         <div className="text-center xl:text-left">
                             <h5 className="text-secondary-foreground">calendar</h5>
@@ -81,16 +81,16 @@ export default function Home() {
                     <TimeTable />
                 </div>
             </Container>
-            <Container className="mt-80">
-                <div className="grid lg:grid-cols-2 grid-rows-2 gap-8 lg:px-8 sm:px-32 xs:px-16 min-[570px]:px-24 px-8 lg:grid-rows-none">
-                    <Card backgroundColor="bg-card">
-                        <div className="-rotate-[20deg] z-40 absolute sm:-left-40 -left-6 max-w-[2200px] 4xl:top-[40px] 3xl:top-[36px] xl:top-[-20px] lg:top-[-50px] md:top-[20%] xs:top-[20%] top-[15%]">
+            <Container className="lg:mt-80 lg:mb-40 mt-20 mb-20">
+                <div className="lg:grid lg:grid-cols-2 gap-8 lg:px-8 sm:px-32 xs:px-16 min-[570px]:px-24">
+                    <Card backgroundColor="bg-card h-full min-h-[590px]">
+                        <div className="-rotate-[20deg] z-20 absolute sm:-left-40 -left-6 max-w-[2200px] 4xl:top-[40px] 3xl:top-[36px] xl:top-[-20px] lg:top-[-50px] md:top-[20%] xs:top-[20%] top-[15%]">
                             <InfiniteSlider />
                         </div>
                         <div className="rotate-[20deg]  absolute sm:-left-40 -left-24 max-w-[2200px] 4xl:bottom-[40px] 3xl:bottom-[36px] mx-16 xl:bottom-[-20px] lg:bottom-[-50px] md:bottom-[20%] xs:bottom-[20%] bottom-[15%]">
                             <InfiniteSlider />
                         </div>
-                        <div className="absolute left-1/2 -translate-x-1/2 z-20 top-1/2 -translate-y-1/2 w-3/4 h-3/4 ">
+                        <div className="absolute left-1/2 -translate-x-1/2 z-10 top-1/2 -translate-y-1/2 w-3/4 h-3/4 ">
                             <Image
                                 src={"/card-picture.png"}
                                 alt="image of girl partying"
@@ -102,7 +102,10 @@ export default function Home() {
                             />
                         </div>
                     </Card>
-                    <Card backgroundColor="bg-card-dark " className="flex items-center">
+                    <Card
+                        backgroundColor="bg-card-dark mt-20 lg:mt-0"
+                        className="flex items-center"
+                    >
                         <div className="m-auto gap-4 *:mb-8 w-4/5">
                             <h5 className="text-foreground">Who we are</h5>
                             <h1 className="text-foreground">
@@ -126,7 +129,7 @@ export default function Home() {
                     </Card>
                 </div>
             </Container>
-            <Container className="pt-40 pb-80">
+            <Container className="mt-20 lg:mt-80 pb-80">
                 <ImageWithObserver
                     src="/leaf-6.png"
                     width={278}
@@ -148,7 +151,7 @@ export default function Home() {
                     height={369}
                     className="absolute bottom-8 left-1/2 -translate-x-1/2"
                 />
-                <div className="grid lg:grid-cols-2 lg:grid-rows-none grid-rows-2 pt-40 gap-20">
+                <div className="grid lg:grid-cols-2 lg:grid-rows-none grid-rows-2 gap-20">
                     <Image
                         className="mx-auto"
                         src="/ticket.png"
@@ -156,43 +159,11 @@ export default function Home() {
                         width={355}
                         height={585}
                     />
-                    <div className="relative">
-                        <a href="#">
-                            <Image
-                                src={"/video-placeholder.png"}
-                                alt="video player image"
-                                style={{ objectFit: "cover" }}
-                                fill={true}
-                            />
-
-                            <svg
-                                width="103"
-                                height="103"
-                                viewBox="0 0 103 103"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
-                            >
-                                <path
-                                    d="M40 37V66L63 51.5L40 37Z"
-                                    stroke="#FECB00"
-                                    strokeWidth="5"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                                <circle
-                                    cx="51.5"
-                                    cy="51.5"
-                                    r="50"
-                                    stroke="#FECB00"
-                                    strokeWidth="3"
-                                />
-                            </svg>
-                        </a>
-                    </div>
+                    <VideoPopUpPlayer />
                 </div>
-                <div className="w[30rem] lg:w-[40rem] mx-auto relative mt-80 px-8">
+                <div className="w[30rem] lg:w-[40rem] mx-auto relative lg:mt-80 mt-40 px-8">
                     <SubscribeForm />
+                    <PrivacyPolicy />
                 </div>
             </Container>
             <section>
@@ -205,7 +176,7 @@ export default function Home() {
                     bgImageStyle={{ maxWidth: "none" }}
                 >
                     <div className="bg-cover bg-no-repeat h-[70vh]">
-                        <div className="py-10 bg-[#E9E9E9] flex justify-center">
+                        <div className="py-10 bg-[#E9E9E9] grid-flow-col grid justify-center">
                             <Image
                                 src="/logo-1.png"
                                 alt="logo label"
@@ -224,6 +195,7 @@ export default function Home() {
                                 width={175}
                                 height={150}
                             />
+
                             <Image
                                 src="/logo-4.png"
                                 alt="logo label"
@@ -240,7 +212,7 @@ export default function Home() {
                     </div>
                 </Parallax>
             </section>
-            <Container className="mt-40">
+            <Container className="mt-16 lg:mt-40">
                 <ImageWithObserver
                     src="/leaf-7.png"
                     className="right-0 absolute top-20 h-[709px]"
@@ -274,8 +246,8 @@ export default function Home() {
                     </div>
                 </div>
             </Container>
-            <section>
-                <div className="pt-40 py-80 overflow-hidden">
+            <section className="lg:py-80 py-20">
+                <div className=" overflow-hidden">
                     <GallerySlider />
                 </div>
             </section>

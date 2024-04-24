@@ -2,18 +2,17 @@
 import ArtistCard from "@/components/UI/ArtistCard";
 import InfiniteSlider from "@/components/UI/InfiniteSlider";
 import Container from "@/components/UI/Container";
+import Title from "@/components/UI/Title";
 
-export default function Home() {
+export default function Artists() {
     return (
-        <div className="bg-gradient-to-b from-accent-secondary  to-background from-0% to-45% overflow-hidden">
-            <div className="pt-64 text-center">
-                <h2>Artists</h2>
-            </div>
-            <div className="rotate-3 mt-52 -mx-4">
+        <main className="bg-gradient-to-b from-accent-secondary  to-background from-0% to-45% overflow-hidden">
+            <Title title="Artists" />
+            <section className="rotate-3 mt-40 lg:mt-52 -mx-4">
                 <InfiniteSlider />
-            </div>
-            <Container>
-                <div className="grid  gap-y-40 gap-x-8 mx-auto my-80 lg:grid-cols-4 justify-center xs:grid-cols-2 px-2">
+            </section>
+            <Container className="my-40 lg:my-80">
+                <div className="grid gap-y-20 lg:gap-y-40 gap-x-8 mx-auto  lg:grid-cols-4 justify-center xs:grid-cols-2 px-2">
                     <ArtistCard
                         artistName="David Greene"
                         role="Musician"
@@ -72,9 +71,9 @@ export default function Home() {
                     />
                 </div>
             </Container>
-            <div className="-rotate-3 mt-40 -mx-4 mb-52">
+            <section className="-rotate-3 mt-40 lg:mt-52 -mx-4 lg:mb-52 mb-40">
                 <InfiniteSlider />
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }

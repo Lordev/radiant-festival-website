@@ -3,14 +3,13 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import FormFieldContact from "@/components/UI/FormFieldContact";
 import Map from "@/components/UI/Map";
 import Container from "@/components/UI/Container";
+import Title from "@/components/UI/Title";
 
 export default function Contact() {
     return (
-        <div className="bg-gradient-to-b from-background via-accent-secondary to-background from-10% sm:from-15% md:from-15% lg:from-20% to-40% sm:to-50% lg:to-60% xl:to-65% overflow-hidden">
-            <div className="lg:pt-64 pt-28 pb-40 text-center">
-                <h2>Contact</h2>
-            </div>
-            <div className="w-40rem">
+        <main className="bg-gradient-to-b from-background via-accent-secondary to-background from-5% sm:from-10%  lg:from-20% to-40% sm:to-50% lg:to-60% xl:to-65% overflow-hidden">
+            <Title title="Contact" />
+            <section className="w-40rem pt-20 lg:pt-40">
                 {/* <Image
                     src={"/map-placeholder.png"}
                     width={2300}
@@ -21,11 +20,11 @@ export default function Contact() {
                 <div className="bg-foreground w-full h-[30rem]">
                     <Map />
                 </div>
-            </div>
+            </section>
             <Container>
                 <div className="grid sm:grid-cols-[1fr_2fr] gap-20  sm:mt-40 mt-40 mb-40 px-4 grid-rows-[repeat(auto,_2)] sm:grid-rows-none">
                     <div>
-                        <div className="*:mb-8">
+                        <div className="sm:*:mb-8 *:mb-6">
                             <h5 className="text-secondary-foreground">Any Questions</h5>
                             <h1 className="text-secondary-foreground">
                                 Any Questions? Get in Touch!
@@ -68,6 +67,6 @@ export default function Contact() {
                     <FormFieldContact />
                 </div>
             </Container>
-        </div>
+        </main>
     );
 }

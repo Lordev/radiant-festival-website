@@ -1,19 +1,26 @@
+"use client";
+
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useMenuState } from "@/hooks/useMenuState";
 import { useEffect } from "react";
 import Image from "next/image";
 import { IconFacebook, IconTwitterRound, IconInstagramRound } from "../Svg//Index";
-import Link from "next/link";
-import { useScreenBreakPoint } from "@/context/useScreenBreakPoints";
+import { useScreenBreakPoint } from "@/context/useContextScreenBreakPoints";
+import { usePathname } from "next/navigation";
+import NavMenuItem from "../UI/NavMenuItem";
 
 export default function NavMenu() {
     const { isMenuOpen, closeMenu } = useMenuState();
-    const { mobile } = useScreenBreakPoint();
+    const { smallMobile, mobile, tablet } = useScreenBreakPoint();
+
+    const pathName = usePathname();
 
     useEffect(() => {
         const leafs = document.querySelectorAll(".menu-elements");
 
-        if (!isMenuOpen) {
+        if (isMenuOpen) {
+            document.body.classList.add("overflow-hidden");
+        } else {
             leafs.forEach((item) => {
                 item.classList.add("opacity-0");
                 const delayScale = setTimeout(() => {
@@ -21,6 +28,14 @@ export default function NavMenu() {
                 }, 500);
                 return () => clearTimeout(delayScale);
             });
+            const delayOverflow = setTimeout(
+                () => {
+                    document.body.classList.remove("overflow-hidden");
+                },
+                1000 //menu animation transitioning out is 1000ms (check <nav)
+            );
+
+            return () => clearTimeout(delayOverflow);
         }
 
         return () => {};
@@ -37,10 +52,11 @@ export default function NavMenu() {
     const DELAY = 50;
     const DURATION = 300;
     const OPACITY = 100;
+
     return (
         <nav
-            className={`nav-menu h-screen w-full bg-foreground transition-all duration-300 fixed z-[99] 
-            ${isMenuOpen ? "visible opacity-100 translate-y-0" : "opacity-0 -translate-y-[100vh] delay-1000"}`}
+            className={`nav-menu h-screen w-full bg-foreground transition-all duration-300 z-50 fixed   
+            ${isMenuOpen ? "visible opacity-100 translate-y-0" : "opacity-0 -translate-y-[100%] delay-1000"}`}
         >
             <div className="flex justify-center items-center h-full relative">
                 <Icon
@@ -48,11 +64,11 @@ export default function NavMenu() {
                     width={50}
                     height={50}
                     onClick={isMenuOpen ? closeMenu : undefined}
-                    className="text-secondary-foreground  absolute right-7 top-10 opacity-100 z-50"
+                    className="text-secondary-foreground  absolute  right-0 top-4 lg:right-7 lg:top-10 opacity-100 z-50 w-[45px] lg:w-[50px] cursor-pointer"
                 />
                 <div className="grid xl:grid-cols-3 w-full h-[75%] xl:w-[75%] box-border border-2 border-secondary-foreground overflow-hidden lg:grid-cols-[minmax(0,1fr)_10rem_minmax(0,1fr)] lg:grid-rows-none grid-rows-3">
                     <div className={`relative`}>
-                        {!mobile ? (
+                        {!smallMobile && !mobile && !tablet ? (
                             <>
                                 <Image
                                     src="/forest.png"
@@ -180,15 +196,15 @@ export default function NavMenu() {
                                 >
                                     {menuLinks.map((link, index) => (
                                         <li key={index} className="lg:pt-0">
-                                            <Link
+                                            <NavMenuItem
+                                                active={pathName === link.url}
                                                 href={link.url}
-                                                className="text-secondary-foreground hover:text-accent-secondary text-s lg:text-xl 2xl:text-4xl uppercase "
                                                 onClick={
                                                     isMenuOpen ? closeMenu : undefined
                                                 }
                                             >
                                                 {link.text}
-                                            </Link>
+                                            </NavMenuItem>
                                         </li>
                                     ))}
                                 </ul>
@@ -196,7 +212,7 @@ export default function NavMenu() {
                         </div>
                     </div>
                     <div className="relative">
-                        {!mobile ? (
+                        {!smallMobile && !mobile && !tablet ? (
                             <>
                                 {" "}
                                 <Image

@@ -1,57 +1,59 @@
-import Image from "next/image";
+"use client";
+import ButtonUnderlined from "../UI/ButtonUnderlined";
+import { usePathname } from "next/navigation";
+import { IconFacebook, IconTwitterRound, IconInstagramRound } from "../Svg//Index";
 
 export default function Footer() {
+    const footerLinks = [
+        { text: "Home", url: "/" },
+        { text: "contact", url: "/contact" },
+        { text: "News", url: "/news" },
+        { text: "Buy Tickets", url: "/buy-tickets" },
+    ];
+
+    const pathName = usePathname();
     return (
-        <footer className="bg-black">
-            <div className="w-1/2 mx-auto pt-40">
-                <div className="lg:text-4xl font-medium text-foreground uppercase max-w-[490px] text-balance xl:text-start text-center text-xl mx-auto xl:mx-0">
-                    OuR music Festival is <br />
+        <footer className="relative">
+            <video
+                className="object-cover w-full h-full absolute inset-0 -z-10"
+                autoPlay
+                loop
+                muted
+            >
+                <source src="noise-footer.mp4" type="video/mp4" />
+            </video>
+            <div className="w-1/2 mx-auto pt-40 z-0">
+                <div className="lg:text-4xl font-medium text-foreground uppercase max-w-[490px] text-balance xl:text-start text-center sm:text-xl text-lg mx-auto xl:mx-0 font-krona-one">
+                    Our music Festival is <br />
                     <span className="text-amber-200">the best of Europe</span>
                 </div>
-                <div className="flex justify-between mt-20 xl:flex-row flex-col gap-16 text-center">
-                    <ul className="flex xl:flex-row flex-col gap-12 text-white text-sm">
-                        <a href="#">
-                            <li className="uppercase">home</li>
-                        </a>
-                        <a href="#">
-                            <li className="uppercase">contact</li>
-                        </a>
-                        <a href="#">
-                            <li className="uppercase">news</li>
-                        </a>
-                        <a href="#">
-                            <li className="uppercase">buy tickets</li>
-                        </a>
+                <div className="flex xl:justify-between mt-20 xl:flex-row flex-col gap-16 text-center">
+                    <ul className="flex xl:flex-row flex-col  gap-8 sm:gap-8 text-center">
+                        {footerLinks.map((link) => (
+                            <li key={link.text} className="mx-auto xl:mx-0">
+                                <ButtonUnderlined
+                                    key={link.text}
+                                    active={pathName === link.url}
+                                    label={link.text}
+                                    link={link.url}
+                                />
+                            </li>
+                        ))}
                     </ul>
-                    <div className="flex gap-4 justify-center">
-                        <a href="#" className="href">
-                            <Image
-                                src={"/facebook-icon-sm.png"}
-                                width={22}
-                                height={22}
-                                alt="facebook icon"
-                            />
+                    <div className="flex gap-4 items-center justify-center xl:justify-start">
+                        <a href="#">
+                            <IconFacebook className="text-foreground hover:text-accent-tertiary lg:w-[21px] w-[22px] h-fit" />
                         </a>
-                        <a href="#" className="href">
-                            <Image
-                                src={"/instagram-icon-sm.png"}
-                                width={22}
-                                height={22}
-                                alt="instagram icon"
-                            />
+                        <a href="#">
+                            <IconTwitterRound className="text-foreground hover:text-accent lg:w-[20px] w-[20px] h-fit" />
                         </a>
-                        <a href="#" className="href">
-                            <Image
-                                src={"/twitter-icon-sm.png"}
-                                width={22}
-                                height={22}
-                                alt="twitter icon"
-                            />
+                        <a href="#">
+                            <IconInstagramRound className="text-foreground hover:text-accent-secondary lg:w-[24px] w-[25px] h-fit" />
                         </a>
                     </div>
                 </div>
                 <hr className="border-t-[1px] border-white mt-20" />
-                <p className="pt-4 pb-16 text-center">
+                <p className="pt-4 pb-16 text-center text-xs sm:text-sm">
                     Copyright by &copy; Musicfestival 2024
                 </p>
             </div>

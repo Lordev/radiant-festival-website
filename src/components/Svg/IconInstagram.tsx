@@ -6,6 +6,7 @@ const IconInstagram = (props: SVGProps<SVGSVGElement>) => (
         height={25}
         fill="none"
         viewBox="0 0 24 25"
+        className="lg:w-[44px] w-[30px]"
         {...props}
     >
         <path

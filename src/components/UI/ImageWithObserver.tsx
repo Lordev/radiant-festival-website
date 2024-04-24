@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import Image from "next/image";
-import { useScreenBreakPoint } from "@/context/useScreenBreakPoints";
+import { useScreenBreakPoint } from "@/context/useContextScreenBreakPoints";
 
 interface AnimatedImageProps {
     src: string;
@@ -25,8 +25,15 @@ export default function AnimatedImage({
     const [calculatedWidth, setCalculatedWidth] = useState(0);
     const [calculatedHeight, setCalculatedHeight] = useState(0);
 
-    const { largeDesktop, mediumDesktop, smallDesktop, tablet, mobile, smallMobile } =
-        useScreenBreakPoint();
+    const {
+        largeDesktop,
+        mediumDesktop,
+        smallDesktop,
+        tablet,
+        largeTablet,
+        mobile,
+        smallMobile,
+    } = useScreenBreakPoint();
 
     useEffect(() => {
         const handleResize = () => {
@@ -36,7 +43,7 @@ export default function AnimatedImage({
                     big: { width: width * 0.9, height: height * 0.9 },
                     normal: { width: width * 0.6, height: height * 0.6 },
                     mobile: { width: width * 0.5, height: height * 0.5 },
-                    smallMobile: { width: width * 0.5, height: height * 0.5 },
+                    smallMobile: { width: width * 0.3, height: height * 0.3 },
                 };
 
                 let calculatedWidth, calculatedHeight;
@@ -50,9 +57,12 @@ export default function AnimatedImage({
                 } else if (smallDesktop) {
                     calculatedWidth = sizes.normal.width;
                     calculatedHeight = sizes.normal.height;
-                } else if (tablet || mobile || smallMobile) {
+                } else if (largeTablet || tablet || mobile) {
                     calculatedWidth = sizes.mobile.width;
                     calculatedHeight = sizes.mobile.height;
+                } else if (smallMobile) {
+                    calculatedWidth = sizes.smallMobile.width;
+                    calculatedHeight = sizes.smallMobile.height;
                 }
 
                 if (!calculatedWidth || !calculatedHeight) return;
@@ -76,6 +86,7 @@ export default function AnimatedImage({
         largeDesktop,
         mediumDesktop,
         smallDesktop,
+        largeTablet,
         tablet,
         mobile,
         smallMobile,
@@ -87,7 +98,7 @@ export default function AnimatedImage({
             style={{
                 transform: isInView ? "" : animation,
                 opacity: isInView ? 1 : 0,
-                transition: `all ${animationTiming}s cubic-bezier(0.17, 0.55, 0.55, 1) .1s`,
+                transition: `transform ${animationTiming}s cubic-bezier(0.17, 0.55, 0.55, 1) .1s`,
                 height: calculatedHeight + "px",
                 width: calculatedWidth + "px",
             }}

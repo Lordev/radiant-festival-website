@@ -4,11 +4,18 @@ import "./globals.css";
 import MenuProvider from "../context/useContextMenu";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
-import ScreenBreakPointProvider from "@/context/useScreenBreakPoints";
-const inter = Inter({ subsets: ["latin"] });
-const kumbhSans = Kumbh_Sans({ subsets: ["latin"] });
-const robotoSerif = Roboto_Serif({ subsets: ["latin"] });
-const kronaOne = Krona_One({ subsets: ["latin"], weight: "400" });
+import ScreenBreakPointProvider from "@/context/useContextScreenBreakPoints";
+import ModalProvider from "@/context/useContextModal";
+import NavMenu from "@/components/Layout/NavMenu";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const kumbhSans = Kumbh_Sans({ subsets: ["latin"], variable: "--font-kumbh-sans" });
+const robotoSerif = Roboto_Serif({ subsets: ["latin"], variable: "--font-roboto-serif" });
+const kronaOne = Krona_One({
+    subsets: ["latin"],
+    weight: "400",
+    variable: "--font-krona-one",
+});
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -24,19 +31,24 @@ export default function RootLayout({
         <html lang="en">
             <body
                 className={`
-                ${kumbhSans.className} 
-                ${robotoSerif.className}                    
-                ${inter.className} 
-                ${kronaOne.className}
+                ${kumbhSans.variable} 
+                ${robotoSerif.variable}                    
+                ${inter.variable} 
+                ${kronaOne.variable}
+                font-robotoSerif
                 `}
             >
-                <ScreenBreakPointProvider>
-                    <MenuProvider>
-                        <Header />
-                        {children}
-                        <Footer />
-                    </MenuProvider>
-                </ScreenBreakPointProvider>
+                <ModalProvider>
+                    <ScreenBreakPointProvider>
+                        <MenuProvider>
+                            <NavMenu />
+
+                            <Header />
+                            {children}
+                            <Footer />
+                        </MenuProvider>
+                    </ScreenBreakPointProvider>
+                </ModalProvider>
             </body>
         </html>
     );

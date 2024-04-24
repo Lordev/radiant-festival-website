@@ -29,36 +29,41 @@
         @apply border-border;
     }
 
+    html {
+        
+    }
+
     body {
-        @apply bg-secondary-foreground text-foreground lg:text-normal text-sm;
+        @apply bg-secondary-foreground text-foreground lg:text-normal 
+        text-sm;
     }
 
     p {
-        @apply text-primary-foreground my-auto font-extralight font-[roboto-serif];
+        @apply text-primary-foreground my-auto font-light font-inter;
     }
 
     h1 {
-        @apply font-[roboto-serif] font-medium text-2xl lg:text-5xl  uppercase tracking-wider;
+        @apply font-roboto-serif font-medium text-lg sm:text-2xl lg:text-5xl  uppercase tracking-wider;
     }
 
     h2 {
-        @apply font-medium text-5xl sm:text-9xl uppercase text-black;
+        @apply font-krona-one font-medium text-2xl xs:text-5xl sm:text-9xl uppercase text-black;
     }
 
     h3 {
-        @apply font-[roboto-serif] font-medium text-3xl  uppercase;
+        @apply font-roboto-serif font-medium text-3xl  uppercase;
     }
 
     h4 {
-        @apply font-[roboto-serif] font-medium xl:text-xl text-lg uppercase ;
+        @apply font-roboto-serif font-medium xl:text-xl text-lg uppercase ;
     }
 
     h5 {
-        @apply font-[roboto-serif] font-medium text-sm  uppercase tracking-[.5rem];
+        @apply font-roboto-serif font-medium text-xs sm:text-sm uppercase tracking-[.5rem];
     }
 
     h6 {
-        @apply font-[roboto-serif] font-medium text-lg  uppercase xl:text-normal;
+        @apply font-roboto-serif font-medium text-lg  uppercase xl:text-normal;
     }
 
     th {
@@ -70,198 +75,193 @@
     }
 
     input {
-        @apply font-[roboto-serif];
+        @apply font-roboto-serif;
     }
-}
 
-textarea {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-}
-
-#quote-swiper {
-    .swiper-button-prev,
-    .swiper-button-next {
+    textarea {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+    }
+    
+    #artist-slider {
+        .swiper-button-prev,
+        .swiper-button-next {
+            position: relative;
+            color: var(--primary);
+            left: 0;
+            right: 0;
+        }
+    
+        .swiper-slide-next.custom-slide,
+        .swiper-slide-prev.custom-slide {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+    }
+    
+    #gallery-slider {
+        
+        margin: 0 -500px;
+    
+        .custom-slider {
+            margin-bottom: 20px;
+        }
+        --swiper-pagination-bullet-size: 12px;
+        --swiper-pagination-color: var(--primary);
+        --swiper-pagination-bullet-inactive-color: #000;
+    }
+    
+    #card-slider {
+        margin: 0 -50px;
+    }
+    
+    .swiper-wrapper {
+        -webkit-transition-timing-function: linear !important;
+        -o-transition-timing-function: linear !important;
+        transition-timing-function: linear !important;
+    }
+    
+    .label {
         position: relative;
-        color: var(--primary);
+        padding-left: 35px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: fit-content;
+    }
+    
+    /* Hide the browser's default checkbox */
+    .label input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+    
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
         left: 0;
-        right: 0;
+        height: 25px;
+        width: 25px;
+        background-color: transparent;
+        border: 1px solid #000;
     }
-
-    .swiper-slide-next.custom-slide,
-    .swiper-slide-prev.custom-slide {
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
+    
+    /* On mouse-over, add a grey background color */
+    .label:hover input ~ .checkmark {
+        background-color: var(--foreground);
     }
-}
-
-#gallery-slider {
-    margin: 0 -500px;
-
-    .custom-slider {
-        margin-bottom: 20px;
+    
+    /* When the checkbox is checked, add a blue background */
+    .label input:checked ~ .checkmark {
+        background-color: var(--foreground);
     }
-    --swiper-pagination-bullet-size: 12px;
-    --swiper-pagination-color: var(--primary);
-    --swiper-pagination-bullet-inactive-color: #000;
-}
-
-#card-slider {
-    margin: 0 -50px;
-}
-
-.swiper-wrapper {
-    -webkit-transition-timing-function: linear !important;
-    -o-transition-timing-function: linear !important;
-    transition-timing-function: linear !important;
-}
-
-.label {
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    width: fit-content;
-}
-
-/* Hide the browser's default checkbox */
-.label input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: transparent;
-    border: 1px solid #000;
-}
-
-/* On mouse-over, add a grey background color */
-.label:hover input ~ .checkmark {
-    background-color: var(--foreground);
-}
-
-/* When the checkbox is checked, add a blue background */
-.label input:checked ~ .checkmark {
-    background-color: var(--foreground);
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-/* Show the checkmark when checked */
-.label input:checked ~ .checkmark:after {
-    display: block;
-}
-
-/* Style the checkmark/indicator */
-.label .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 7px;
-    height: 12px;
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-.custom-input:focus {
-    background-color: transparent; /* Background color on focus */
-    border-color: dodgerblue; /* Border color on focus */
-    outline: none; /* Remove the default focus outline */
-}
-
-/* Overwrite the autofill styles */
-.custom-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px var(--background) inset !important;
-}
-
-.custom-cursor {
-    transition: opacity 0.3s ease-in-out;
-}
-
-.hover-effect {
-    transition: background-color 0.3s ease-in-out;
-}
-
-.hover-effect:hover {
-    background-color: #f0f0f0;
-}
-
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-foreground) var(--secondary-foreground);
-}
-
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-    width: 16px;
-}
-
-*::-webkit-scrollbar-track {
-    background: var(--foreground);
-}
-
-*::-webkit-scrollbar-thumb {
-    background-color: var(--foreground);
-    border-radius: 10px;
-    border: 1px solid var(--secondary-foreground);
-}
-
-.slider {
-        animation: slidein 30s linear infinite;
-        white-space: nowrap;
-}
-
-.slide-animation {
-    animation: fade-in 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
-}
-
-@keyframes slidein {
-    from {
-        transform: translate3d(-100%, 0, 0);
+    
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
     }
-    to {
-        transform: translate3d(0, 0, 0);
+    
+    /* Show the checkmark when checked */
+    .label input:checked ~ .checkmark:after {
+        display: block;
+    }
+    
+    /* Style the checkmark/indicator */
+    .label .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 7px;
+        height: 12px;
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    
+    .custom-input:focus {
+        background-color: transparent; /* Background color on focus */
+        border-color: dodgerblue; /* Border color on focus */
+        outline: none; /* Remove the default focus outline */
+    }
+    
+    /* Overwrite the autofill styles */
+    .custom-input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px var(--background) inset !important;
+    }
+    
+    .custom-cursor {
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .hover-effect {
+        transition: background-color 0.3s ease-in-out;
+    }
+    
+    .hover-effect:hover {
+        background-color: #f0f0f0;
+    }
+    
+    /* ===== Scrollbar CSS ===== */
+    /* Firefox */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary-foreground) var(--secondary-foreground);
+    }
+    
+    /* Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+        width: 16px;
+    }
+    
+    *::-webkit-scrollbar-track {
+        background: var(--foreground);
+    }
+    
+    *::-webkit-scrollbar-thumb {
+        background-color: var(--foreground);
+        border-radius: 10px;
+        border: 1px solid var(--secondary-foreground);
+    }
+    
+    .slider {
+            animation: slidein 30s linear infinite;
+            white-space: nowrap;
+    }
+    
+    .slide-animation {
+        animation: fade-in 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+    }
+    
+    @keyframes slidein {
+        from {
+            transform: translate3d(-100%, 0, 0);
+        }
+        to {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+
+    .modal {
+        margin-left: calc(100vw - 100%);
     }
 }
 
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.sticky {
-    position: sticky;
-    top: 500px; /* Adjust as needed */
-    padding: 20px;
-    transition: top 0.3s ease-in-out;
-}
-
-.sticky.stuck {
-    top: calc(100vh - 100px); /* Adjust as needed */
-}

@@ -1,10 +1,12 @@
 import Input from "./Input";
 import { useRef, useState } from "react";
+import { useModal } from "@/context/useContextModal";
 
 export default function SubscribeForm({}) {
     const [checkbox, setCheckbox] = useState(false);
     const [email, setEmail] = useState("");
     const emailRef = useRef<HTMLInputElement>(null);
+    const { openModal } = useModal();
 
     const handleCheckbox = () => {
         if (!checkbox) setCheckbox(true);
@@ -38,20 +40,26 @@ export default function SubscribeForm({}) {
             >
                 The field is required
             </span>
-            <div className="flex gap-4 items-center mt-1">
-                <label className="label">
-                    <input
-                        type="checkbox"
-                        required
-                        onChange={handleCheckbox}
-                        checked={checkbox}
-                    />
-                    <span className="text-primary ml-4 font-[roboto-serif]">
+            <div className="flex gap-8 mt-4">
+                <div className="flex items-center relative">
+                    <label className="label h-[25px] w-[25px]">
+                        <input
+                            type="checkbox"
+                            onChange={handleCheckbox}
+                            checked={checkbox}
+                        />
+                        <span className="checkmark"></span>
+                    </label>
+
+                    <span
+                        className="text-primary font-[roboto-serif] pl-4 cursor-pointer hover:text-primary-foreground flex items-center"
+                        onClick={openModal}
+                    >
                         I agree to the privacy policy
                     </span>
-                    <span className="checkmark"></span>
-                </label>
+                </div>
             </div>
+
             <button></button>
         </form>
     );
