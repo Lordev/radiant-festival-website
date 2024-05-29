@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 interface CountdownTimerProps {
     endDate: Date;
 }
 
 const CountdownTimer = ({ endDate }: CountdownTimerProps) => {
-    const calculateTimeLeft = () => {
+    const calculateTimeLeft = useCallback(() => {
         const difference = +new Date(endDate) - +new Date();
 
         interface timeLeftProps {
@@ -32,7 +32,7 @@ const CountdownTimer = ({ endDate }: CountdownTimerProps) => {
         }
 
         return timeLeft;
-    };
+    }, [endDate]);
 
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 

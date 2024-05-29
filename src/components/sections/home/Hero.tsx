@@ -1,44 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Countdown, { zeroPad } from "react-countdown";
-import Container from "@/components/UI/Container";
-import CountdownTimer from "../UI/CountdownTimer";
+import Container from "@/components/ui/Container";
+import CountdownTimer from "../../ui/CountdownTimer";
 import { useEffect, useState } from "react";
 
-interface CountdownSettingsProps {
-    days: number;
-    hours: number;
-    minutes: number;
-    seconds: number;
-    completed: boolean;
-}
-
-const Completionist = () => <span>See you next year!</span>;
-
-// Renderer callback with condition
-const renderer = ({
-    days,
-    hours,
-    minutes,
-    seconds,
-    completed,
-}: CountdownSettingsProps) => {
-    if (completed) {
-        // Render a completed state
-        return <Completionist />;
-    } else {
-        // Render a countdown
-        return (
-            <span className="text-lg sm:text-2xl lg:text-5xl font-semibold text-center text-white uppercase max-w-[362px]">
-                {zeroPad(days)} : {zeroPad(hours)} : {zeroPad(minutes)} :{" "}
-                {zeroPad(seconds)}
-            </span>
-        );
-    }
-};
-
-export default function Hero() {
+export default function HeroSection() {
     const [headerHeight, setHeaderHeight] = useState(0);
     useEffect(() => {
         const headerHeight = document.querySelector(".header")?.clientHeight;

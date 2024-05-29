@@ -1,11 +1,12 @@
+"use client";
 import Modal from "react-modal";
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/UI/accordion";
-import { useModal } from "@/context/useContextModal";
+} from "@/components/ui/accordion";
+import { useModal } from "@/lib/context/useContextModal";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 export default function PrivacyPolicy() {

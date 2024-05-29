@@ -1,17 +1,12 @@
 "use client";
-import ButtonUnderlined from "../UI/ButtonUnderlined";
+import ButtonUnderlined from "../ui/ButtonUnderlined";
 import { usePathname } from "next/navigation";
-import { IconFacebook, IconTwitterRound, IconInstagramRound } from "../Svg//Index";
+import { IconFacebook, IconTwitterRound, IconInstagramRound } from "../svg";
+import { footerLinks } from "@/lib/data/links";
 
 export default function Footer() {
-    const footerLinks = [
-        { text: "Home", url: "/" },
-        { text: "contact", url: "/contact" },
-        { text: "News", url: "/news" },
-        { text: "Buy Tickets", url: "/buy-tickets" },
-    ];
-
     const pathName = usePathname();
+
     return (
         <footer className="relative">
             <video

@@ -1,7 +1,8 @@
+"use client";
 import { useEffect, useState, useRef } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
-import { useScreenBreakPoint } from "@/context/useContextScreenBreakPoints";
+import { useScreenBreakPoint } from "@/lib/context/useContextScreenBreakPoints";
 
 export default function VideoPopUpPlayer({}) {
     const [open, setOpen] = useState(false);

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import IconInstagram from "../Svg/IconInstagram";
-import IconTwitter from "../Svg/IconTwitter";
+import IconInstagram from "../svg/IconInstagram";
+import IconTwitter from "../svg/IconTwitter";
 
 interface ArtistCardProps {
     artistName: string;

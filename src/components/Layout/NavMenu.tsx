@@ -1,13 +1,14 @@
 "use client";
 
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { useMenuState } from "@/hooks/useMenuState";
+import { useMenuState } from "@/lib/hooks/useMenuState";
 import { useEffect } from "react";
 import Image from "next/image";
-import { IconFacebook, IconTwitterRound, IconInstagramRound } from "../Svg//Index";
-import { useScreenBreakPoint } from "@/context/useContextScreenBreakPoints";
+import { IconFacebook, IconTwitterRound, IconInstagramRound } from "../svg";
+import { useScreenBreakPoint } from "@/lib/context/useContextScreenBreakPoints";
 import { usePathname } from "next/navigation";
-import NavMenuItem from "../UI/NavMenuItem";
+import NavMenuItem from "../ui/NavMenuItem";
+import { menuLinks } from "@/lib/data/links";
 
 export default function NavMenu() {
     const { isMenuOpen, closeMenu } = useMenuState();
@@ -40,14 +41,6 @@ export default function NavMenu() {
 
         return () => {};
     }, [isMenuOpen]);
-
-    const menuLinks = [
-        { text: "Home", url: "/" },
-        { text: "Artists", url: "/artists" },
-        { text: "Contact", url: "/contact" },
-        { text: "Menu", url: "/menu" },
-        { text: "Blog", url: "/blog" },
-    ];
 
     const DELAY = 50;
     const DURATION = 300;

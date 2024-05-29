@@ -1,3 +1,5 @@
+"use client";
+
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -16,7 +18,7 @@ const customMarkerIcon = L.icon({
     shadowSize: [41, 41],
 });
 
-export default function Map() {
+export default function LeafletMap() {
     return (
         <MapContainer
             center={[52.3216, 4.857486]}

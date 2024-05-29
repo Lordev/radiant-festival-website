@@ -1,4 +1,5 @@
-import { useScreenBreakPoint } from "@/context/useContextScreenBreakPoints";
+"use client";
+import { useScreenBreakPoint } from "@/lib/context/useContextScreenBreakPoints";
 
 export default function InfiniteSlider() {
     const { smallMobile, mobile, tablet } = useScreenBreakPoint();

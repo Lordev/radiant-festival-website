@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Inter, Kumbh_Sans, Roboto_Serif, Krona_One } from "next/font/google";
 import "./globals.css";
-import MenuProvider from "../context/useContextMenu";
-import Header from "@/components/Layout/Header";
-import Footer from "@/components/Layout/Footer";
-import ScreenBreakPointProvider from "@/context/useContextScreenBreakPoints";
-import ModalProvider from "@/context/useContextModal";
-import NavMenu from "@/components/Layout/NavMenu";
+import MenuProvider from "../lib/context/useContextMenu";
+import ModalProvider from "../lib/context/useContextModal";
+import ScreenBreakPointProvider from "../lib/context/useContextScreenBreakPoints";
+import Footer from "../components/layout/Footer";
+import Header from "@/components/header";
+import NavMenu from "../components/layout/NavMenu";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const kumbhSans = Kumbh_Sans({ subsets: ["latin"], variable: "--font-kumbh-sans" });
@@ -42,7 +42,6 @@ export default function RootLayout({
                     <ScreenBreakPointProvider>
                         <MenuProvider>
                             <NavMenu />
-
                             <Header />
                             {children}
                             <Footer />

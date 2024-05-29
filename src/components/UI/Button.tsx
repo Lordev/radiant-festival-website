@@ -1,3 +1,4 @@
+"use client";
 import "./button.css";
 import { ButtonHTMLAttributes, useState } from "react";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

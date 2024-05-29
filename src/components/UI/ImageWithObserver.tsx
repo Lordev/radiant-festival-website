@@ -1,7 +1,8 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import Image from "next/image";
-import { useScreenBreakPoint } from "@/context/useContextScreenBreakPoints";
+import { useScreenBreakPoint } from "@/lib/context/useContextScreenBreakPoints";
 
 interface AnimatedImageProps {
     src: string;

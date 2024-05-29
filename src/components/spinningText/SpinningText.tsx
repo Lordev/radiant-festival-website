@@ -25,7 +25,7 @@ export default function SpinningText({ size = "lg" }: SpinningTextProps) {
                     />
                 </div>
             ) : size === "sm" ? (
-                <div className="relative lg:w-[328px] w-[228px] ">
+                <div className="relative lg:w-[328px] w-[228px] aspect-square">
                     <Image
                         src={"/curve-text-sm.png"}
                         alt="curve text"

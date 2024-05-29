@@ -6,9 +6,7 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import ScreenBreakPointProvider, {
-    useScreenBreakPoint,
-} from "@/context/useContextScreenBreakPoints";
+import { useScreenBreakPoint } from "@/lib/context/useContextScreenBreakPoints";
 
 export default function GallerySlider() {
     const [swiperLoaded, setSwiperLoaded] = useState(false);

@@ -1,3 +1,4 @@
+"use client";
 import { useRef } from "react";
 import Button from "./Button";
 import Input from "./Input";
@@ -10,7 +11,8 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/UI/accordion";
+} from "./accordion";
+
 export default function FormFieldContact() {
     const [name, setName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -130,7 +132,7 @@ export default function FormFieldContact() {
                         autoComplete="name"
                     />
                     <span
-                        className={`text-red-500 font-[roboto-serif] ${checkbox && !name ? "" : "invisible"}`}
+                        className={`text-red-500 font-[roboto-serif] ${checkbox && !name ? "visible" : "invisible"}`}
                     >
                         The field is required
                     </span>
@@ -149,7 +151,7 @@ export default function FormFieldContact() {
                         autoComplete="tel"
                     />
                     <span
-                        className={`text-red-500 font-[roboto-serif] ${checkbox && !phoneNumber ? "" : "invisible"}`}
+                        className={`text-red-500 font-[roboto-serif] ${checkbox && !phoneNumber ? "visible" : "invisible"}`}
                     >
                         The field is required
                     </span>
@@ -168,7 +170,7 @@ export default function FormFieldContact() {
                         autoComplete="email"
                     />
                     <span
-                        className={`text-red-500 font-[roboto-serif] ${checkbox && !email ? "" : "invisible"}`}
+                        className={`text-red-500 font-[roboto-serif] ${checkbox && !email ? "visible" : "invisible"}`}
                     >
                         The field is required
                     </span>
@@ -194,7 +196,7 @@ export default function FormFieldContact() {
                         ref={textAreaRef}
                     />
                     <span
-                        className={`text-red-500 font-[roboto-serif] ${checkbox && !text ? "" : "invisible"}`}
+                        className={`text-red-500 font-[roboto-serif] ${checkbox && !text ? "visible" : "invisible"}`}
                     >
                         The field is required
                     </span>

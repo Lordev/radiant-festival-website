@@ -1,6 +1,7 @@
+"use client";
 import Input from "./Input";
 import { useRef, useState } from "react";
-import { useModal } from "@/context/useContextModal";
+import { useModal } from "@/lib/context/useContextModal";
 
 export default function SubscribeForm({}) {
     const [checkbox, setCheckbox] = useState(false);
