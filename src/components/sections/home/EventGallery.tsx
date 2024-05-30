@@ -18,7 +18,7 @@ export default function EventGallery() {
                         <SpinningText />
                     </div>
                     <div className="lg:order-2">
-                        <div className="mx-auto gap-4 mb-8 w-4/5">
+                        <div className="mx-auto gap-4 mb-8 w-4/5 space-y-8">
                             <h5 className="text-secondary-foreground">Who we are</h5>
                             <h1 className="text-secondary-foreground">
                                 THE BIGGEST, MOST IMPORTANT DANCE MUSIC FESTIVAL ON THE

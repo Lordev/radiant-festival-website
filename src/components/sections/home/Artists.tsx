@@ -1,4 +1,4 @@
-import ArtistSlider from "@/components/ui/ArtistSlider";
+import SliderArtists from "@/components/ui/ArtistSlider";
 import Container from "@/components/ui/Container";
 import ImageWithObserver from "@/components/ui/ImageWithObserver";
 import PageDivider from "@/components/ui/PageDivider";
@@ -35,7 +35,7 @@ export default function Artists() {
                 height={709}
             />
             <div className="flex flex-col lg:flex-row gap-8 justify-center py-60">
-                <ArtistSlider />
+                <SliderArtists />
             </div>
             <PageDivider />
         </Container>

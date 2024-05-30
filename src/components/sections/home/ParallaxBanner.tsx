@@ -1,7 +1,7 @@
 import Parallax from "@/components/Parallax";
 import Image from "next/image";
 
-export default function Sponsors() {
+export default function ParallaxBanner() {
     return (
         <section>
             <Parallax

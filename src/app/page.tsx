@@ -4,8 +4,8 @@ import {
     EventSchedule,
     Cards,
     Marketing,
-    Sponsors,
-    Subscribe,
+    NewsletterSubscription,
+    ParallaxBanner,
     EventGallery,
 } from "@/components/sections/home";
 import InfiniteSlider from "@/components/ui/InfiniteSlider";
@@ -19,8 +19,8 @@ export default function Home() {
             <EventSchedule />
             <Cards />
             <Marketing />
-            <Subscribe />
-            <Sponsors />
+            <NewsletterSubscription />
+            <ParallaxBanner />
             <EventGallery />
             <InfiniteSlider />
         </main>

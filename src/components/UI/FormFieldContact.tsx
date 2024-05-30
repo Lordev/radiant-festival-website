@@ -201,7 +201,7 @@ export default function FormFieldContact() {
                         The field is required
                     </span>
                 </div>
-                <div className="flex gap-8 mt-4">
+                <div className="flex max-sm:flex-wrap gap-8 mt-4 items-center justify-center">
                     <Button
                         label="Send"
                         backgroundColor="var(--accent-secondary)"
@@ -210,7 +210,7 @@ export default function FormFieldContact() {
                         type="submit"
                         form="myForm"
                     />
-                    <div className="flex gap-8 mt-4">
+                    <div className="flex gap-8">
                         <div className="flex items-center relative">
                             <label className="label h-[25px] w-[25px]">
                                 <input

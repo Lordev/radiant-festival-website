@@ -3,8 +3,8 @@ import Artists from "./Artists";
 import Cards from "./Cards";
 import Marketing from "./Marketing";
 import EventSchedule from "./EventSchedule";
-import Subscribe from "./Subscribe";
-import Sponsors from "./Sponsors";
+import NewsletterSubscription from "./NewsletterSubscription";
+import ParallaxBanner from "./ParallaxBanner";
 import EventGallery from "./EventGallery";
 
 export {
@@ -13,7 +13,7 @@ export {
     Cards,
     Marketing,
     EventSchedule,
-    Subscribe,
-    Sponsors,
+    NewsletterSubscription,
+    ParallaxBanner,
     EventGallery,
 };

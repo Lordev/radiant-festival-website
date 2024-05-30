@@ -31,7 +31,7 @@ export default function Cards() {
                     backgroundColor="bg-card-dark mt-20 lg:mt-0"
                     className="flex items-center"
                 >
-                    <div className="m-auto gap-4 *:mb-8 w-4/5">
+                    <div className="m-auto gap-4 space-y-8 w-4/5">
                         <h5 className="text-foreground">Who we are</h5>
                         <h1 className="text-foreground">
                             THE BIGGEST, MOST IMPORTANT DANCE MUSIC FESTIVAL ON THE PLANET

@@ -2,7 +2,7 @@ import SubscribeForm from "@/components/ui/SubscribeForm";
 import PrivacyPolicy from "@/components/ui/PrivacyPolicy";
 import Image from "next/image";
 
-export default function Subscribe() {
+export default function NewsletterSubscription() {
     return (
         <section className="relative lg:my-40 my-20">
             <Image

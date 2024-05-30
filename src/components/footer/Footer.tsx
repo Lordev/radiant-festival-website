@@ -6,7 +6,6 @@ import { footerLinks } from "@/lib/data/links";
 
 export default function Footer() {
     const pathName = usePathname();
-
     return (
         <footer className="relative">
             <video

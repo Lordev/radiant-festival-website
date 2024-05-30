@@ -1,13 +1,11 @@
 "use client";
-
-import { Icon } from "@iconify/react/dist/iconify.js";
 import { useMenuState } from "@/lib/hooks/useMenuState";
 import { useEffect } from "react";
 import Image from "next/image";
-import { IconFacebook, IconTwitterRound, IconInstagramRound } from "../svg";
+import { IconFacebook, IconTwitterRound, IconInstagramRound, IconClose } from "../svg";
 import { useScreenBreakPoint } from "@/lib/context/useContextScreenBreakPoints";
 import { usePathname } from "next/navigation";
-import NavMenuItem from "../ui/NavMenuItem";
+import NavMenuItem from "./NavMenuItem";
 import { menuLinks } from "@/lib/data/links";
 
 export default function NavMenu() {
@@ -52,8 +50,7 @@ export default function NavMenu() {
             ${isMenuOpen ? "visible opacity-100 translate-y-0" : "opacity-0 -translate-y-[100%] delay-1000"}`}
         >
             <div className="flex justify-center items-center h-full relative">
-                <Icon
-                    icon={"material-symbols:close"}
+                <IconClose
                     width={50}
                     height={50}
                     onClick={isMenuOpen ? closeMenu : undefined}

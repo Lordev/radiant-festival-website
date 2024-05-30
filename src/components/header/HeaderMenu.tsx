@@ -2,6 +2,7 @@ import Image from "next/image";
 import { IconFacebook, IconInstagramRound, IconTwitterRound } from "../svg";
 import Link from "next/link";
 import HeaderMenuButton from "./HeaderMenuButton";
+import ShoppingCartButton from "./ShoppingCartButton";
 
 export default function HeaderMenu() {
     return (
@@ -28,7 +29,10 @@ export default function HeaderMenu() {
                     />
                 </Link>
             </div>
-            <HeaderMenuButton />
+            <div className="flex items-center justify-end gap-x-4">
+                <ShoppingCartButton />
+                <HeaderMenuButton />
+            </div>
         </>
     );
 }

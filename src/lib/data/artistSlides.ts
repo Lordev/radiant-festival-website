@@ -1,4 +1,4 @@
-export const artistSlides = [
+export const artistSlidesData = [
     {
         artist: "Mark the Twinley",
         imgUrl: "/artist-1.png",

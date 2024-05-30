@@ -1,6 +1,6 @@
 import Container from "@/components/ui/Container";
 import FormFieldContact from "@/components/ui/FormFieldContact";
-import Icon from "@iconify/react";
+import { IconMobile, IconPin, IconMail } from "@/components/svg";
 
 export default function ContactForm() {
     return (
@@ -21,30 +21,18 @@ export default function ContactForm() {
                         </p>
                     </div>
                     <div className="flex flex-col gap-6 *:flex *:items-center *:gap-4">
-                        {/* <div>
-                                <Icon
-                                    icon={"ph:map-pin-fill"}
-                                    width={40}
-                                    className="text-black "
-                                />
-                                <p> 785 15h Street, Office 478 Berlin</p>
-                            </div>
-                            <div>
-                                <Icon
-                                    icon={"icomoon-free:mobile"}
-                                    width={40}
-                                    className="text-black "
-                                />
-                                <p>+1 840 841 25 69</p>
-                            </div>
-                            <div>
-                                <Icon
-                                    icon={"material-symbols:mail"}
-                                    width={35}
-                                    className="text-black "
-                                />
-                                <p>info@email.comn</p>
-                            </div> */}
+                        <div>
+                            <IconPin fontSize={40} color="black" />
+                            <p> 785 15h Street, Office 478 Berlin</p>
+                        </div>
+                        <div>
+                            <IconMobile fontSize={40} color="black" />
+                            <p>+1 840 841 25 69</p>
+                        </div>
+                        <div>
+                            <IconMail fontSize={40} color="black" />
+                            <p>info@email.comn</p>
+                        </div>
                     </div>
                 </div>
                 <FormFieldContact />
