@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import Button from "./Button";
+import Button from "../buttons/Button";
 import Input from "./Input";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
@@ -11,7 +11,7 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "./accordion";
+} from "../accordion";
 
 export default function FormFieldContact() {
     const [name, setName] = useState("");

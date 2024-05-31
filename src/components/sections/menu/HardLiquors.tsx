@@ -1,5 +1,5 @@
 import AnimatedImage from "@/components/ui/ImageWithObserver";
-import MenuCardItem from "@/components/ui/MenuCardItem";
+import MenuCardItem from "@/components/ui/cards/MenuCardItem";
 
 export default function HardLiquors() {
     return (

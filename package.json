@@ -29,7 +29,8 @@
         "react-stickynode": "^4.1.1",
         "swiper": "^11.1.0",
         "tailwind-merge": "^2.2.2",
-        "tailwindcss-animate": "^1.0.7"
+        "tailwindcss-animate": "^1.0.7",
+        "zustand": "^4.5.2"
     },
     "devDependencies": {
         "@chromatic-com/storybook": "^1.2.25",

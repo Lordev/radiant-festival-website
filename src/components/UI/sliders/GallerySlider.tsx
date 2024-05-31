@@ -1,16 +1,23 @@
 "use client";
 import { Navigation, A11y, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useScreenBreakPoint } from "@/lib/context/useContextScreenBreakPoints";
+import useBreakpointsStore from "@/lib/store/breakpoints";
 
 export default function GallerySlider() {
     const [swiperLoaded, setSwiperLoaded] = useState(false);
-    const { mobile, laptop, tablet } = useScreenBreakPoint();
+    const { mobile, initializeBreakpoints } = useBreakpointsStore();
+
+    useEffect(() => {
+        const cleanup = initializeBreakpoints();
+        return () => {
+            cleanup();
+        };
+    }, [initializeBreakpoints]);
 
     const handleLoad = () => {
         setSwiperLoaded(true);

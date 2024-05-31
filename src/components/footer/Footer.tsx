@@ -1,5 +1,5 @@
 "use client";
-import ButtonUnderlined from "../ui/ButtonUnderlined";
+import ButtonUnderlined from "../ui/buttons/ButtonUnderlined";
 import { usePathname } from "next/navigation";
 import { IconFacebook, IconTwitterRound, IconInstagramRound } from "../svg";
 import { footerLinks } from "@/lib/data/links";

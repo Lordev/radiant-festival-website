@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import Image from "next/image";
-import { useScreenBreakPoint } from "@/lib/context/useContextScreenBreakPoints";
+import useBreakpointsStore from "@/lib/store/breakpoints";
 
 interface AnimatedImageProps {
     src: string;
@@ -34,7 +34,15 @@ export default function AnimatedImage({
         largeTablet,
         mobile,
         smallMobile,
-    } = useScreenBreakPoint();
+        initializeBreakpoints,
+    } = useBreakpointsStore();
+
+    useEffect(() => {
+        const cleanup = initializeBreakpoints();
+        return () => {
+            cleanup();
+        };
+    }, [initializeBreakpoints]);
 
     useEffect(() => {
         const handleResize = () => {

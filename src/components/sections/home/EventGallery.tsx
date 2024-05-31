@@ -1,8 +1,8 @@
 import Container from "@/components/ui/Container";
 import ImageWithObserver from "@/components/ui/ImageWithObserver";
-import Button from "@/components/ui/Button";
-import GallerySlider from "@/components/ui/GallerySlider";
-import SpinningText from "@/components/spinningText";
+import Button from "@/components/ui/buttons/Button";
+import GallerySlider from "@/components/ui/sliders/GallerySlider";
+import SpinningText from "@/components/ui/SpinningText";
 
 export default function EventGallery() {
     return (
@@ -15,7 +15,7 @@ export default function EventGallery() {
                 />
                 <div className="grid lg:grid-cols-2 max-lg:grid-rows-2 gap-20 lg:gap">
                     <div className="flex items-center justify-center order-2 lg:order-1">
-                        <SpinningText />
+                        <SpinningText size="sm" />
                     </div>
                     <div className="lg:order-2">
                         <div className="mx-auto gap-4 mb-8 w-4/5 space-y-8">

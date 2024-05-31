@@ -1,4 +1,4 @@
-import SliderArtists from "@/components/ui/ArtistSlider";
+import SliderArtists from "@/components/ui/sliders/ArtistSlider";
 import Container from "@/components/ui/Container";
 import ImageWithObserver from "@/components/ui/ImageWithObserver";
 import PageDivider from "@/components/ui/PageDivider";

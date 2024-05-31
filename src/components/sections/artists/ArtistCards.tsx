@@ -1,5 +1,5 @@
 import Container from "@/components/ui/Container";
-import ArtistCard from "@/components/ui/ArtistCard";
+import ArtistCard from "@/components/ui/cards/ArtistCard";
 import { ArtistCardsData } from "@/lib/data/artistCardsData";
 
 export default function ArtistCards() {

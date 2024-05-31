@@ -3,16 +3,21 @@ import { useMenuState } from "@/lib/hooks/useMenuState";
 import { useEffect } from "react";
 import Image from "next/image";
 import { IconFacebook, IconTwitterRound, IconInstagramRound, IconClose } from "../svg";
-import { useScreenBreakPoint } from "@/lib/context/useContextScreenBreakPoints";
+import useBreakpointsStore from "@/lib/store/breakpoints";
 import { usePathname } from "next/navigation";
 import NavMenuItem from "./NavMenuItem";
 import { menuLinks } from "@/lib/data/links";
 
 export default function NavMenu() {
     const { isMenuOpen, closeMenu } = useMenuState();
-    const { smallMobile, mobile, tablet } = useScreenBreakPoint();
+    const { smallMobile, mobile, tablet, initializeBreakpoints } = useBreakpointsStore();
 
     const pathName = usePathname();
+
+    useEffect(() => {
+        const cleanup = initializeBreakpoints();
+        return () => cleanup();
+    }, [initializeBreakpoints]);
 
     useEffect(() => {
         const leafs = document.querySelectorAll(".menu-elements");
@@ -34,7 +39,9 @@ export default function NavMenu() {
                 1000 //menu animation transitioning out is 1000ms (check <nav)
             );
 
-            return () => clearTimeout(delayOverflow);
+            return () => {
+                clearTimeout(delayOverflow);
+            };
         }
 
         return () => {};

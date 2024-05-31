@@ -2,12 +2,12 @@
 import { useEffect, useState, useRef } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
-import { useScreenBreakPoint } from "@/lib/context/useContextScreenBreakPoints";
+import useBreakpointsStore from "@/lib/store/breakpoints";
 
 export default function VideoPopUpPlayer({}) {
     const [open, setOpen] = useState(false);
     const [isRotated, setIsRotated] = useState(false);
-    const { smallMobile, mobile, tablet } = useScreenBreakPoint();
+    const { smallMobile, mobile, tablet, initializeBreakpoints } = useBreakpointsStore();
 
     const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -23,6 +23,13 @@ export default function VideoPopUpPlayer({}) {
     };
 
     const mobileLandScape = isRotated && (smallMobile || mobile || tablet);
+
+    useEffect(() => {
+        const cleanup = initializeBreakpoints();
+        return () => {
+            cleanup();
+        };
+    }, [initializeBreakpoints]);
 
     useEffect(() => {
         const isLandscape = window.innerWidth > window.innerHeight;

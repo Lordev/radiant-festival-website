@@ -1,9 +1,9 @@
 import Container from "@/components/ui/Container";
-import Image from "next/image";
 import ImageWithObserver from "@/components/ui/ImageWithObserver";
-import VideoPopUpPlayer from "@/components/ui/VideoPopupPlayer";
+import VideoPopUpPlayer from "@/components/ui/modal/VideoPopupPlayer";
+import Ticket from "@/components/ui/Ticket";
 
-export default function MarketingSection() {
+export default function Marketing() {
     return (
         <Container className="mt-20 lg:mt-80 pb-80">
             <ImageWithObserver
@@ -21,13 +21,7 @@ export default function MarketingSection() {
                 height={468}
             />
             <div className="grid lg:grid-cols-2 lg:grid-rows-none grid-rows-2 gap-20">
-                <Image
-                    className="mx-auto"
-                    src="/ticket.png"
-                    alt="festival ticket"
-                    width={355}
-                    height={585}
-                />
+                <Ticket />
                 <VideoPopUpPlayer />
             </div>
         </Container>

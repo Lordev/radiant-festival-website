@@ -1,4 +1,4 @@
-@import url(../components/UI/button.css);
+@import url(../components/ui/buttons/button.css);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

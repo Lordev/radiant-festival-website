@@ -1,8 +1,16 @@
 "use client";
-import { useScreenBreakPoint } from "@/lib/context/useContextScreenBreakPoints";
+import useBreakpointsStore from "@/lib/store/breakpoints";
+import { useEffect } from "react";
 
 export default function InfiniteSlider() {
-    const { smallMobile, mobile, tablet } = useScreenBreakPoint();
+    const { smallMobile, mobile, tablet, initializeBreakpoints } = useBreakpointsStore();
+
+    useEffect(() => {
+        const cleanup = initializeBreakpoints();
+        return () => {
+            cleanup();
+        };
+    }, [initializeBreakpoints]);
 
     //*text limit ~25/30
     const slides = [

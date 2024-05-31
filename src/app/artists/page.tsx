@@ -1,5 +1,5 @@
 import ArtistCards from "@/components/sections/artists/ArtistCards";
-import InfiniteSlider from "@/components/ui/InfiniteSlider";
+import InfiniteSlider from "@/components/ui/sliders/InfiniteSlider";
 import Title from "@/components/ui/Title";
 
 export default function Artists() {

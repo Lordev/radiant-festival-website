@@ -1,7 +1,7 @@
 import Container from "@/components/ui/Container";
-import Card from "@/components/ui/Card";
+import Card from "@/components/ui/cards/Card";
 import Image from "next/image";
-import MenuCardItem from "@/components/ui/MenuCardItem";
+import MenuCardItem from "@/components/ui/cards/MenuCardItem";
 
 export default function FoodCards() {
     return (

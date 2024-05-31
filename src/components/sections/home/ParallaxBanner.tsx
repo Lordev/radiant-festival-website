@@ -1,4 +1,4 @@
-import Parallax from "@/components/Parallax";
+import Parallax from "@/components/shared/Parallax";
 import Image from "next/image";
 
 export default function ParallaxBanner() {

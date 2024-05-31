@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { PropsWithChildren, useState } from "react";
+import { useState } from "react";
 import { A11y, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import { IconFacebook, IconInstagramRound, IconYouTube } from "../svg/index";
+import { IconFacebook, IconInstagramRound, IconYouTube } from "../../svg/index";
 import { artistSlidesData } from "@/lib/data/artistSlides";
 
 import "swiper/css";
@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-export default function SliderContainer({ children }: PropsWithChildren) {
+export default function SliderContainer() {
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0); // State to hold the current slide index
 
     const handleSlideChange = (swiper: any) => {
@@ -21,8 +21,6 @@ export default function SliderContainer({ children }: PropsWithChildren) {
 
     const buttonStyling =
         "w-10 h-10 cursor-pointer block relative transition-transform duration-2500";
-
-    const slidesStyling = "flex flex-row px-10 lg:px-0 lg:mb-16";
 
     return (
         <>
@@ -42,16 +40,17 @@ export default function SliderContainer({ children }: PropsWithChildren) {
                     id="artist-slider"
                 >
                     {artistSlidesData.map((item, index) => (
-                        <SwiperSlide key={item.artist} className={slidesStyling}>
-                            <div className="">
-                                <Image
-                                    className=""
-                                    src={item.imgUrl}
-                                    alt="slide-img"
-                                    width={456}
-                                    height={517}
-                                />
-                            </div>
+                        <SwiperSlide
+                            key={item.artist}
+                            className={`flex flex-row px-10 lg:px-0 lg:mb-16 transition-opacity  duration-700 ease-in-out `}
+                        >
+                            <Image
+                                className={`rounded-lg transition-opacity duration-700 ease-in-out ${currentSlideIndex === index ? "opacity-100" : "opacity-0"}`}
+                                src={item.imgUrl}
+                                alt="slide-img"
+                                width={456}
+                                height={517}
+                            />
                         </SwiperSlide>
                     ))}
                     <div className="absolute bottom-1/2 translate-y-1/2 flex justify-between w-full lg:w-fit z-20 lg:gap-8 lg:bottom-2">
@@ -73,7 +72,7 @@ export default function SliderContainer({ children }: PropsWithChildren) {
                         {artistSlidesData.map((slide, index) => (
                             <div
                                 key={slide.artist}
-                                className={`transition-opacity duration-700 transform absolute w-full text-base font-medium ${currentSlideIndex === index ? "opacity-100" : "opacity-0"}`}
+                                className={`transition-opacity duration-200 transform absolute w-full text-base font-medium ${currentSlideIndex === index ? "opacity-100" : "opacity-0"}`}
                             >
                                 {slide.artist}
                             </div>

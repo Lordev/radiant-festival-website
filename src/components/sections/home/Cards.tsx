@@ -1,8 +1,8 @@
 import Container from "@/components/ui/Container";
-import Card from "@/components/ui/Card";
-import InfiniteSlider from "@/components/ui/InfiniteSlider";
+import Card from "@/components/ui/cards/Card";
+import InfiniteSlider from "@/components/ui/sliders/InfiniteSlider";
 import Image from "next/image";
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/buttons/Button";
 
 export default function Cards() {
     return (

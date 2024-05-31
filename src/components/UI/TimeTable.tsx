@@ -1,16 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useScreenBreakPoint } from "@/lib/context/useContextScreenBreakPoints";
+import useBreakpointsStore from "@/lib/store/breakpoints";
 import { timeTableData } from "@/lib/data/timeTableData";
 
 export default function TimeTable() {
-    const { smallMobile, mobile, tablet } = useScreenBreakPoint();
+    const { smallMobile, mobile, tablet, initializeBreakpoints } = useBreakpointsStore();
+
+    useEffect(() => {
+        const cleanup = initializeBreakpoints();
+        return () => {
+            cleanup();
+        };
+    }, [initializeBreakpoints]);
 
     const [day, setDay] = useState(1);
 

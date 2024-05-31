@@ -1,9 +1,11 @@
 "use client";
 import { IconShoppingCart } from "../svg";
 import { useShoppingMenu } from "@/lib/context/useContextShoppingMenu";
+import useTicketsStore from "@/lib/store/tickets";
 
 export default function ShoppingCartButton() {
     const { openShoppingMenu } = useShoppingMenu();
+    const amountTickets = useTicketsStore((state) => state.ticketsAmount);
 
     return (
         <div
@@ -13,9 +15,11 @@ export default function ShoppingCartButton() {
             }}
         >
             <IconShoppingCart fontSize={30} color={"var(--primary-foreground)"} />
-            <div className="w-5 aspect-square absolute bottom-0 right-0 bg-accent-secondary rounded-full text-secondary text-center">
-                1
-            </div>
+            {amountTickets > 0 && (
+                <div className="w-5 aspect-square absolute bottom-0 right-0 bg-accent-secondary rounded-full text-secondary text-center">
+                    {amountTickets}
+                </div>
+            )}
         </div>
     );
 }

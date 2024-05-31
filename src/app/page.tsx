@@ -8,7 +8,7 @@ import {
     ParallaxBanner,
     EventGallery,
 } from "@/components/sections/home";
-import InfiniteSlider from "@/components/ui/InfiniteSlider";
+import InfiniteSlider from "@/components/ui/sliders/InfiniteSlider";
 
 export default function Home() {
     return (

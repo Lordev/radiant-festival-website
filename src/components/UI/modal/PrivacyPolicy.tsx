@@ -18,7 +18,6 @@ export default function PrivacyPolicy() {
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
                 contentLabel="Example Modal"
-                preventScroll
                 style={{
                     content: {
                         top: "50%",

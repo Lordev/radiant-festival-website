@@ -1,5 +1,5 @@
-import SubscribeForm from "@/components/ui/SubscribeForm";
-import PrivacyPolicy from "@/components/ui/PrivacyPolicy";
+import SubscribeForm from "@/components/ui/forms/SubscribeForm";
+import PrivacyPolicy from "@/components/ui/modal/PrivacyPolicy";
 import Image from "next/image";
 
 export default function NewsletterSubscription() {

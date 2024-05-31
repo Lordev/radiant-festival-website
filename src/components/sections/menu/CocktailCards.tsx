@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Container from "@/components/ui/Container";
-import Card from "@/components/ui/Card";
-import MenuCardItem from "@/components/ui/MenuCardItem";
+import Card from "@/components/ui/cards/Card";
+import MenuCardItem from "@/components/ui/cards/MenuCardItem";
 
 export default function CocktailCards() {
     return (
         <Container className="lg:mt-80 lg:mb-40 mt-20 mb-20">
-            <div className="lg:grid lg:grid-cols-2 gap-8 lg:px-8 sm:px-32  min-[570px]:px-24">
+            <div className="lg:grid lg:grid-cols-2 gap-8 lg:px-8 sm:px-32  min-h-[570px]:px-24">
                 <Card backgroundColor="bg-card relative" className="h-full min-h-[590px]">
                     <div className="absolute left-1/2 -translate-x-1/2 z-20 top-1/2 -translate-y-1/2 w-[70%] xl:w-3/4 h-3/4">
                         <Image

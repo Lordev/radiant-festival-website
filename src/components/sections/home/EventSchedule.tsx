@@ -1,7 +1,7 @@
 import Container from "@/components/ui/Container";
 import TimeTable from "@/components/ui/TimeTable";
-import SpinningText from "@/components/spinningText";
-import StickyContainer from "@/components/spinningText/StickyContainer";
+import SpinningText from "@/components/ui/SpinningText";
+import StickyContainer from "@/components/ui/StickyContainer";
 
 export default function EventSchedule() {
     return (
@@ -14,7 +14,7 @@ export default function EventSchedule() {
                             <h1 className="text-secondary-foreground">event schedule</h1>
                         </div>
                         <div className="xl:pl-12 flex max-xl:justify-center">
-                            <SpinningText />
+                            <SpinningText size="sm" />
                         </div>
                     </div>
                 </StickyContainer>

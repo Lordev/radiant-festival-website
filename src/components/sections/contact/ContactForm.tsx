@@ -1,5 +1,5 @@
 import Container from "@/components/ui/Container";
-import FormFieldContact from "@/components/ui/FormFieldContact";
+import FormFieldContact from "@/components/ui/forms/FormFieldContact";
 import { IconMobile, IconPin, IconMail } from "@/components/svg";
 
 export default function ContactForm() {

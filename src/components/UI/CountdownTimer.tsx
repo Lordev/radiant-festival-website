@@ -52,17 +52,19 @@ const CountdownTimer = ({ endDate }: CountdownTimerProps) => {
             value !== undefined ? (value < 10 ? `0${value}` : `${value}`) : "00";
 
         timerComponents.push(
-            <div key={interval}>
+            <React.Fragment key={interval}>
                 <div>
-                    <h3 className="text-lg sm:text-2xl lg:text-5xl font-semibold text-center text-white uppercase max-w-[362px]">
-                        {formattedValue}
-                    </h3>
-                    <span>{interval}</span>
+                    <div>
+                        <h3 className="text-lg sm:text-2xl lg:text-5xl font-semibold text-center text-white uppercase max-w-[362px]">
+                            {formattedValue}
+                        </h3>
+                        <span>{interval}</span>
+                    </div>
                 </div>
-                <h3 className="items-center flex text-lg sm:text-2xl lg:text-5xl font-semibold last:hidden">
+                <div className="items-center flex text-lg sm:text-2xl lg:text-5xl font-semibold last:hidden">
                     :
-                </h3>
-            </div>
+                </div>
+            </React.Fragment>
         );
     });
 
