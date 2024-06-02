@@ -3,7 +3,7 @@ import { useMenuState } from "@/lib/hooks/useMenuState";
 import { useEffect } from "react";
 import Image from "next/image";
 import { IconFacebook, IconTwitterRound, IconInstagramRound, IconClose } from "../svg";
-import useBreakpointsStore from "@/lib/store/breakpoints";
+import useBreakpointsStore from "@/lib/store/useBreakpointStore";
 import { usePathname } from "next/navigation";
 import NavMenuItem from "./NavMenuItem";
 import { menuLinks } from "@/lib/data/links";

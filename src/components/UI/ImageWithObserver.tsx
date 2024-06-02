@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import Image from "next/image";
-import useBreakpointsStore from "@/lib/store/breakpoints";
+import useBreakpointsStore from "@/lib/store/useBreakpointStore";
 
 interface AnimatedImageProps {
     src: string;

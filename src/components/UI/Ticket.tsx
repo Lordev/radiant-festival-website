@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import useTicketsStore from "@/lib/store/tickets";
+import useTicketsStore from "@/lib/store/useTicketsStore";
 import { useShoppingMenu } from "@/lib/context/useContextShoppingMenu";
 
 export default function Ticket() {

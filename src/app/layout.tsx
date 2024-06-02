@@ -5,7 +5,7 @@ import ContextProvider from "@/lib/context";
 import Footer from "../components/footer/Footer";
 import Header from "@/components/header";
 import NavMenu from "../components/menu/NavMenu";
-import ShoppingMenu from "@/components/menu/ShoppingMenu";
+import ShopLayout from "@/components/shop";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const kumbhSans = Kumbh_Sans({ subsets: ["latin"], variable: "--font-kumbh-sans" });
@@ -40,7 +40,7 @@ export default function RootLayout({
                 <ContextProvider>
                     <NavMenu />
                     <Header />
-                    <ShoppingMenu />
+                    <ShopLayout />
                     {children}
                     <Footer />
                 </ContextProvider>

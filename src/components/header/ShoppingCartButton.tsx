@@ -1,7 +1,7 @@
 "use client";
 import { IconShoppingCart } from "../svg";
 import { useShoppingMenu } from "@/lib/context/useContextShoppingMenu";
-import useTicketsStore from "@/lib/store/tickets";
+import useTicketsStore from "@/lib/store/useTicketsStore";
 
 export default function ShoppingCartButton() {
     const { openShoppingMenu } = useShoppingMenu();

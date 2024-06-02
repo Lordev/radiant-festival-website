@@ -6,7 +6,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
-import useBreakpointsStore from "@/lib/store/breakpoints";
+import useBreakpointsStore from "@/lib/store/useBreakpointStore";
 import { timeTableData } from "@/lib/data/timeTableData";
 
 export default function TimeTable() {

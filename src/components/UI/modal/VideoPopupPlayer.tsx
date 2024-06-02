@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
-import useBreakpointsStore from "@/lib/store/breakpoints";
+import useBreakpointsStore from "@/lib/store/useBreakpointStore";
 
 export default function VideoPopUpPlayer({}) {
     const [open, setOpen] = useState(false);

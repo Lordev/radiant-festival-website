@@ -1,5 +1,5 @@
 "use client";
-import useBreakpointsStore from "@/lib/store/breakpoints";
+import useBreakpointsStore from "@/lib/store/useBreakpointStore";
 import { useEffect } from "react";
 
 export default function InfiniteSlider() {

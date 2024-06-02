@@ -1,5 +1,5 @@
 "use client";
-import useBreakpointsStore from "@/lib/store/breakpoints";
+import useBreakpointsStore from "@/lib/store/useBreakpointStore";
 import { useEffect } from "react";
 import Sticky from "@/components/shared/Sticky";
 import { PropsWithChildren } from "react";
