@@ -5,7 +5,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export async function POST(request: NextRequest) {
     const data = await request.json();
-    console.log(data);
     const { quantity } = data.item;
 
     try {
@@ -23,8 +22,11 @@ export async function POST(request: NextRequest) {
                 },
             ],
             mode: "payment",
-            success_url: "https://localhost:3000",
-            cancel_url: "https://localhost:3000",
+            success_url: `http://localhost:3000/success`,
+            cancel_url: `http://localhost:3000`,
+            metadata: {
+                user: "user_id",
+            },
         });
         return NextResponse.json({ id: session.id });
     } catch (error) {

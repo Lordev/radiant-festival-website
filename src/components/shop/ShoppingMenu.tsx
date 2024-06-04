@@ -41,7 +41,7 @@ export default function ShoppingMenu({ children }: { children: React.ReactNode }
             id="shopping-container"
         >
             <div
-                className={`fixed right-0  top-0 bottom-0 h-screen bg-foreground w-[34rem] shadow-xl transition-all duration-300 ease-in-out transform  text-primary py-16 px-4 ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+                className={`fixed right-0  top-0 bottom-0 h-screen bg-foreground w-full sm:w-[30rem] lg:w-[34rem] shadow-xl transition-all duration-300 ease-in-out transform  text-primary py-16 px-4 ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
                 id="shopping-menu"
             >
                 {children}

@@ -42,6 +42,7 @@ export default function Shop() {
     };
 
     const handleCheckout = async () => {
+        if (!ticketsAmount) return;
         try {
             const response = await axios.post("/api/get-stripe-session", {
                 item: {
@@ -49,9 +50,7 @@ export default function Shop() {
                 },
             });
             const sessionId = response.data.id;
-            const stripe = await loadStripe(
-                "pk_test_51PNBqTGxV66yGAQkNxQqnyZRlgIwA9mJlQaE8YE9nSHJ23whm2ysfboIIuxjsIskFUse7JTjAHk22aIofKFEb7Un006ZdSYdiT"
-            );
+            const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
             await stripe.redirectToCheckout({ sessionId });
         } catch (error) {
             console.error(error);
@@ -108,7 +107,7 @@ export default function Shop() {
                                             primary
                                             textColor="var(--primary)"
                                             backgroundColor="var(--accent)"
-                                            className="rounded-full w-8 aspect-square text-xl"
+                                            className="rounded-full aspect-square p-2 w-9 text-lg"
                                             onClick={() => handleDecrementTickets()}
                                         />
                                         <Button
@@ -116,7 +115,7 @@ export default function Shop() {
                                             primary
                                             textColor="var(--primary)"
                                             backgroundColor="var(--accent)"
-                                            className="rounded-full w-8 aspect-square text-xl"
+                                            className="rounded-full aspect-square p-2 w-9 text-lg"
                                             onClick={() => handleIncrementTickets()}
                                         />
                                     </div>
@@ -135,10 +134,8 @@ export default function Shop() {
                                 </div>
                                 <div>
                                     <Button
-                                        label="Remove all items"
-                                        onClick={() => {
-                                            resetTickets();
-                                        }}
+                                        label="Remove al"
+                                        onClick={() => resetTickets()}
                                         className="p-0 text-xs uppercase"
                                     />
                                 </div>
@@ -148,18 +145,22 @@ export default function Shop() {
                 </div>
                 <hr />
             </div>
-            <div className="space-y-8 w-full">
-                <hr />
-                <div className="flex justify-center">
+            <hr />
+            <div className="space-y-4 w-full h-20 py-4">
+                <div className="mx-auto w-fit">
                     <Button
-                        label="Pay Here"
-                        primary
-                        onClick={() => {
-                            handleCheckout();
-                        }}
-                        className="w-full"
+                        onClick={handleCheckout}
+                        label="Go to Checkout"
+                        backgroundColor={`var(--accent)`}
+                        className={`transition-opacity duration-100 ease-in ${ticketsAmount === 0 ? "cursor-not-allowed opacity-50" : ""}`}
+                        textColor="black"
+                        primary={true}
+                        disabled={ticketsAmount === 0}
                     />
                 </div>
+                <p className="text-xs text-primary text-center">
+                    Need at least 1 ticket to checkout and a maximum of 10 p.p.
+                </p>
             </div>
         </div>
     );

@@ -5,7 +5,6 @@ export default function HeaderContainer({ children }: PropsWithChildren) {
     const [sticky, setSticky] = useState(false);
     const [direction, setDirection] = useState("up");
     const headerRef = useRef<HTMLDivElement>(null);
-    const [headerHeight, setHeaderHeight] = useState(0);
     const [prevScroll, setPrevScroll] = useState(0);
     const [currentScroll, setCurrentScroll] = useState(0);
 
@@ -21,11 +20,13 @@ export default function HeaderContainer({ children }: PropsWithChildren) {
         setPrevScroll(window.scrollY);
 
         if (headerRef.current) {
-            setHeaderHeight(headerRef.current.offsetHeight);
+            const headerHeight = headerRef.current.clientHeight;
+            if (window.scrollY > headerHeight) {
+                setSticky(true);
+            } else {
+                setSticky(false);
+            }
         }
-        setSticky(currentScroll > headerHeight);
-
-        // Initial calculations
 
         window.addEventListener("scroll", handleScroll);
 
@@ -33,16 +34,12 @@ export default function HeaderContainer({ children }: PropsWithChildren) {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, [currentScroll]); // Empty dependency array to run the effect only once on mount
+    }, [currentScroll]); //eslint-disable-line
 
     return (
-        <div
-            style={{
-                height: headerHeight + "px",
-            }}
-        >
+        <div className="min-h-20 lg:min-h-28">
             <header
-                className={`grid grid-cols-3 items-center bg-amber-100 max-md:flex-wrap w-full z-40 shadow-lg header transition-all duration-300 ease-in-out  ${!sticky ? "block" : "fixed"} ${sticky && direction === "up" && "top-0"} ${sticky && direction === "down" && " top-[-100%]"}`}
+                className={`grid grid-cols-3 items-center bg-amber-100 max-md:flex-wrap w-full z-40 shadow-lg header transition-all duration-300 ease-in-out min-h-20  lg:min-h-28 ${!sticky ? "block" : "fixed"} ${sticky && direction === "up" && "top-0"} ${sticky && direction === "down" && " top-[-100%]"}`}
                 ref={headerRef}
             >
                 {children}

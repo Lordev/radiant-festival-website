@@ -13,6 +13,8 @@ export default function HeroSection() {
         setHeaderHeight(headerHeight);
     }, []);
 
+    console.log(headerHeight);
+
     return (
         <Container>
             <picture>

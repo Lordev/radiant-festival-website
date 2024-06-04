@@ -14,7 +14,11 @@ export default function ShoppingCartButton() {
                 openShoppingMenu();
             }}
         >
-            <IconShoppingCart fontSize={30} color={"var(--primary-foreground)"} />
+            <IconShoppingCart
+                fontSize={30}
+                color={"var(--primary-foreground)"}
+                className="max-sm:w-6"
+            />
             {amountTickets > 0 && (
                 <div className="w-5 aspect-square absolute bottom-0 right-0 bg-accent-secondary rounded-full text-secondary text-center">
                     {amountTickets}
