@@ -4,7 +4,7 @@ import { useState } from "react";
 import { A11y, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import { IconFacebook, IconInstagramRound, IconYouTube } from "../../svg/index";
+import { IconFacebook, IconInstagramRound, IconYouTube } from "@/components/svg";
 import { artistSlidesData } from "@/lib/data/artistSlides";
 
 import "swiper/css";

@@ -1,0 +1,17 @@
+# Exclude typical development files
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.git
+.svn
+.vscode
+.idea
+.storybook/
+.next/
+.DS_Store
+*.log
+*.logs
+*.md
+*.txt
+package-lock.json

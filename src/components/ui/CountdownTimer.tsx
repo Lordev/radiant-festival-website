@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useCallback } from "react";
 
 interface CountdownTimerProps {
@@ -55,12 +56,15 @@ const CountdownTimer = ({ endDate }: CountdownTimerProps) => {
             <React.Fragment key={interval}>
                 <div>
                     <div>
-                        <h3 className="text-lg sm:text-2xl lg:text-5xl font-semibold text-center text-white uppercase max-w-[362px]">
-                            {formattedValue}
-                        </h3>
+                        <div className=" overflow-hidden">
+                            <h3 className="text-lg sm:text-2xl lg:text-5xl font-semibold text-center text-white uppercase max-w-[362px] animate-slide-bottom">
+                                {formattedValue}
+                            </h3>
+                        </div>
                         <span>{interval}</span>
                     </div>
                 </div>
+
                 <div className="items-center flex text-lg sm:text-2xl lg:text-5xl font-semibold last:hidden">
                     :
                 </div>

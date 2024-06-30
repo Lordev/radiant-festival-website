@@ -9,13 +9,13 @@ export default function HeaderMenu() {
         <>
             <div className="flex flex-wrap gap-2.5 items-center my-auto pl-2 lg:pl-8">
                 <a href="#">
-                    <IconFacebook className="text-primary-foreground hover:text-accent-tertiary lg:w-[44px] w-6" />
+                    <IconFacebook className="text-primary-foreground hover:text-accent-tertiary lg:w-9 w-6" />
                 </a>
                 <a href="#">
-                    <IconTwitterRound className="text-primary-foreground hover:text-accent lg:w-[44px] w-6" />
+                    <IconTwitterRound className="text-primary-foreground hover:text-accent lg:w-9 w-6" />
                 </a>
                 <a href="#">
-                    <IconInstagramRound className="text-primary-foreground hover:text-accent-secondary lg:w-[48px] w-6" />
+                    <IconInstagramRound className="text-primary-foreground hover:text-accent-secondary lg:w-10 w-6" />
                 </a>
             </div>
             <div className="justify-center flex">

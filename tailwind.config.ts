@@ -62,7 +62,7 @@ const config = {
         },
         extend: {
             backgroundImage: {
-                hero: "url('/Hero.jpg')",
+                hero: "url('/Hero@1600w.jpg')",
                 banner: "url('/banner-festival.png')",
             },
 
@@ -125,6 +125,10 @@ const config = {
                     from: { transform: "translateY(0)" },
                     to: { transform: "translateY(-100%)" },
                 },
+                "slide-bottom": {
+                    from: { transform: "translateY(100%)" },
+                    to: { transform: "translateY(0)" },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
@@ -132,6 +136,7 @@ const config = {
                 "spin-slow": "spin 10s linear infinite",
                 "slide-down": "slide-down .1s ease-out",
                 "slide-up": "slide-up .3s forwards ease-in",
+                "slide-bottom": "slide-bottom .3s forwards ease-in",
             },
         },
     },
