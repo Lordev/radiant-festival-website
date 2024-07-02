@@ -1,0 +1,14 @@
+export { default as IconFacebook } from "./IconFacebook";
+export { default as IconInstagramRound } from "./IconInstagramRound";
+export { default as IconInstagram } from "./IconInstagram";
+export { default as IconTwitterRound } from "./IconTwitterRound";
+export { default as IconTwitter } from "./IconTwitter";
+export { default as IconYouTube } from "./IconYouTube";
+export { default as IconMenu } from "./IconMenu";
+export { default as IconPin } from "./IconPin";
+export { default as IconMobile } from "./IconMobile";
+export { default as IconShoppingCart } from "./IconShoppingCart";
+export { default as IconMail } from "./IconMail";
+export { default as IconClose } from "./IconClose";
+export { default as ImageTicket } from "./ImageTicket";
+export { default as IconCheckMark } from "./IconCheckMark";

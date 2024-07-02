@@ -1,0 +1,47 @@
+substitutions:
+    _PROJECT_ID: 'website-nextjs-festival'
+    _REPO_NAME: 'my-docker-repo'
+    _SERVICE_NAME: 'my-service'
+    _REGION: 'europe-west4'
+
+options:
+    logging: CLOUD_LOGGING_ONLY
+
+steps:
+    - name: 'gcr.io/cloud-builders/docker'
+      args: ['build', '-t', 'gcr.io/${_PROJECT_ID}/${_REPO_NAME}:latest', '.']
+    - name: 'gcr.io/cloud-builders/docker'
+      args: ['push', 'gcr.io/${_PROJECT_ID}/${_REPO_NAME}:latest']
+    - name: 'gcr.io/cloud-builders/gcloud'
+      args:
+          - 'run'
+          - 'deploy'
+          - '${_SERVICE_NAME}'
+          - '--image'
+          - 'gcr.io/${_PROJECT_ID}/${_REPO_NAME}:latest'
+          - '--platform'
+          - 'managed'
+          - '--region'
+          - '${_REGION}'
+          - '--allow-unauthenticated'
+          - '--set-env-vars'
+          - |
+            NEXT_PUBLIC_TEST_ENV=true,
+            NEXT_PUBLIC_STRIPE_PUBLIC_KEY=pk_test_51PNBqTGxV66yGAQkNxQqnyZRlgIwA9mJlQaE8YE9nSHJ23whm2ysfboIIuxjsIskFUse7JTjAHk22aIofKFEb7Un006ZdSYdiT,
+            NEXT_PUBLIC_DATE_EVENT=2024-08-01T13:00:00.000Z
+      secretEnv: 
+        - 'STRIPE_SECRET_KEY'
+        - 'STRIPE_PRICE_ID'
+        - 'STRIPE_WEBHOOK_SECRET'
+
+images:
+    - 'gcr.io/${_PROJECT_ID}/${_REPO_NAME}:latest'
+
+availableSecrets:
+    secretManager:
+        - versionName: projects/${_PROJECT_ID}/secrets/STRIPE_SECRET_KEY/versions/latest
+          env: 'STRIPE_SECRET_KEY'
+        - versionName: projects/${_PROJECT_ID}/secrets/STRIPE_PRICE_ID/versions/latest
+          env: 'STRIPE_PRICE_ID'
+        - versionName: projects/${_PROJECT_ID}/secrets/STRIPE_WEBHOOK_SECRET/versions/latest
+          env: 'STRIPE_WEBHOOK_SECRET'

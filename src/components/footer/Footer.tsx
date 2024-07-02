@@ -3,8 +3,11 @@ import ButtonUnderlined from '../ui/buttons/ButtonUnderlined';
 import { usePathname } from 'next/navigation';
 import { IconFacebook, IconTwitterRound, IconInstagramRound } from '../svg';
 import { footerLinks } from '@/lib/data/links';
+import { useShoppingMenu } from '@/lib/context/useContextShoppingMenu';
 
 export default function Footer() {
+	const { isMenuOpen, closeShoppingMenu } = useShoppingMenu();
+
 	const pathName = usePathname();
 	return (
 		<footer className="relative">
@@ -14,7 +17,7 @@ export default function Footer() {
 				loop
 				muted
 			>
-				<source src="noise-footer.mp4" type="video/mp4" />
+				<source src="noise.webm" type="video/webm" max-width={200}/>
 			</video>
 			<div className="w-1/2 mx-auto pt-40 z-0">
 				<div className="lg:text-4xl font-medium text-foreground uppercase max-w-[490px] text-balance xl:text-start text-center sm:text-xl text-lg mx-auto xl:mx-0 font-krona-one">

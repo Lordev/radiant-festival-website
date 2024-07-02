@@ -59,7 +59,7 @@ export default function HeroSection() {
 				/>
 				<source
 					media="(max-width: 1600px)"
-					srcSet="/compressed/hero-tablet@1600w.webp"
+					srcSet="/compressed/hero@1600w.webp"
 				/>
 				<Image
 					src={'/compressed/hero@2300w.webp'}
