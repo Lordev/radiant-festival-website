@@ -9,10 +9,10 @@ export default function Cards() {
 		<Container className="lg:mt-80 lg:mb-40 mt-20 mb-20">
 			<div className="lg:grid lg:grid-cols-2 gap-8 lg:px-8 sm:px-32 xs:px-16 min-[570px]:px-24">
 				<Card backgroundColor="bg-card h-full min-h-[590px]">
-					<div className="-rotate-[20deg] z-20 absolute sm:-left-40 -left-6 max-w-[2200px] 4xl:top-[40px] 3xl:top-[36px] xl:top-[-20px] lg:top-[-50px] md:top-[20%] xs:top-[20%] top-[15%]">
+					<div className="-rotate-[20deg] z-20 absolute top-32 -mx-8">
 						<InfiniteSlider />
 					</div>
-					<div className="rotate-[20deg]  absolute sm:-left-40 -left-24 max-w-[2200px] 4xl:bottom-[40px] 3xl:bottom-[36px] mx-16 xl:bottom-[-20px] lg:bottom-[-50px] md:bottom-[20%] xs:bottom-[20%] bottom-[15%]">
+					<div className="rotate-[20deg]  absolute bottom-32 -mx-8">
 						<InfiniteSlider />
 					</div>
 					<div className="absolute left-1/2 -translate-x-1/2 z-10 top-1/2 -translate-y-1/2 w-3/4 h-3/4 ">
@@ -32,21 +32,22 @@ export default function Cards() {
 					className="flex items-center"
 				>
 					<div className="m-auto gap-4 space-y-8 w-4/5">
-						<h5 className="text-foreground">Who we are</h5>
+						<h5 className="text-foreground">Who We Are</h5>
 						<h1 className="text-foreground">
-							THE BIGGEST, MOST IMPORTANT DANCE MUSIC FESTIVAL ON
-							THE PLANET
+							THE ULTIMATE DANCE MUSIC EXTRAVAGANZA
 						</h1>
 						<p className="text-foreground pr-20">
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua. Ut enim ad minim veniam, quis
-							nostrud exercitation ullamco laboris nisi ut aliquip
-							ex ea commodo consequat. Duis aute irure dolor in
-							reprehenderit in voluptate
+							Join us in Amsterdam for an unforgettable experience
+							at the heart of the dance music scene. Our festival
+							brings together the world{"'"}s top DJs, immersive
+							light shows, and an electrifying atmosphere that you
+							won
+							{"'"}t want to miss. Whether you{"'"}re a dance
+							music veteran or a newcomer, this event promises
+							something extraordinary for everyone.
 						</p>
 						<Button
-							label="Click me"
+							label="Learn More"
 							backgroundColor="var(--accent)"
 							textColor="black"
 							primary={true}

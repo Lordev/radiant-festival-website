@@ -17,7 +17,7 @@ export default function Footer() {
 				loop
 				muted
 			>
-				<source src="noise.webm" type="video/webm" max-width={200}/>
+				<source src="noise.webm" type="video/webm" max-width={200} />
 			</video>
 			<div className="w-1/2 mx-auto pt-40 z-0">
 				<div className="lg:text-4xl font-medium text-foreground uppercase max-w-[490px] text-balance xl:text-start text-center sm:text-xl text-lg mx-auto xl:mx-0 font-krona-one">
@@ -51,7 +51,7 @@ export default function Footer() {
 				</div>
 				<hr className="border-t-[1px] border-white mt-20" />
 				<p className="pt-4 pb-16 text-center text-xs sm:text-sm">
-					Copyright by &copy; Musicfestival 2024
+					Copyright by &copy; Radiant Festival 2024
 				</p>
 			</div>
 		</footer>

@@ -26,13 +26,9 @@ steps:
           - '--allow-unauthenticated'
           - '--set-env-vars'
           - |
-            NEXT_PUBLIC_TEST_ENV=true,
-            NEXT_PUBLIC_STRIPE_PUBLIC_KEY=pk_test_51PNBqTGxV66yGAQkNxQqnyZRlgIwA9mJlQaE8YE9nSHJ23whm2ysfboIIuxjsIskFUse7JTjAHk22aIofKFEb7Un006ZdSYdiT,
-            NEXT_PUBLIC_DATE_EVENT=2024-08-01T13:00:00.000Z
-      secretEnv: 
-        - 'STRIPE_SECRET_KEY'
-        - 'STRIPE_PRICE_ID'
-        - 'STRIPE_WEBHOOK_SECRET'
+            $(if [ -z "$NEXT_PUBLIC_TEST_ENV" ]; then echo "NEXT_PUBLIC_TEST_ENV=true"; fi),
+            $(if [ -z "$NEXT_PUBLIC_STRIPE_PUBLIC_KEY" ]; then echo "NEXT_PUBLIC_STRIPE_PUBLIC_KEY=pk_test_51PNBqTGxV66yGAQkNxQqnyZRlgIwA9mJlQaE8YE9nSHJ23whm2ysfboIIuxjsIskFUse7JTjAHk22aIofKFEb7Un006ZdSYdiT"; fi),
+            $(if [ -z "$NEXT_PUBLIC_DATE_EVENT" ]; then echo "NEXT_PUBLIC_DATE_EVENT=2024-08-01T13:00:00.000Z"; fi)
 
 images:
     - 'gcr.io/${_PROJECT_ID}/${_REPO_NAME}:latest'

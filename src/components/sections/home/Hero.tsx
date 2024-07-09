@@ -74,11 +74,13 @@ export default function HeroSection() {
 			<div
 				className={`items-center justify-center flex flex-col gap-20 md:gap-40 h-screen md:py-20 lg:py-40 text-balance *:z-10 font-krona-one lg:h-[calc(100vh-7rem)] h-[calc(100vh-5rem]`}
 			>
-				<div className="text-center text-yellow-400 uppercase max-w-[885px] lg:text-7xl sm:text-4xl text-xl -translate-[100%]">
-					<span className="text-amber-100">This music Festival</span>{' '}
-					<span className="text-amber-100">will</span>
-					<span className="text-yellow-400"> be the Brightest</span>
+				<div className="text-center text-yellow-400 uppercase max-w-[950px] lg:text-7xl sm:text-4xl text-xl -translate-[100%]">
+					<span className="text-amber-100">
+						Experience Amsterdam{"'"}s{' '}
+					</span>{' '}
+					<span className="text-yellow-400">Radiant Festival</span>
 				</div>
+
 				<CountdownTimer
 					endDate={new Date(process.env.NEXT_PUBLIC_DATE_EVENT)}
 				/>
