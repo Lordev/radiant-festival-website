@@ -24,7 +24,7 @@ export default function Shop() {
 	const article = [
 		{
 			title: 'Ticket Festival: Fun Zone',
-			date: '01 - 03 July 2024',
+			date: '01 - 03 September 2024',
 		},
 	];
 
