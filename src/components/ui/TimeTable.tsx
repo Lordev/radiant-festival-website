@@ -40,7 +40,7 @@ export default function TimeTable() {
 								{`DAY ${item.day}`}
 								<br />
 								<div className="font-kumbh-sans tracking-widest">
-									September 0{item.day}.2024
+									Oktober 0{item.day}.2024
 								</div>
 							</div>
 						))}

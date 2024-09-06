@@ -24,7 +24,7 @@ export default function Shop() {
 	const article = [
 		{
 			title: 'Ticket Festival: Fun Zone',
-			date: '01 - 03 September 2024',
+			date: '01 - 03 Oktober 2024',
 		},
 	];
 
@@ -167,7 +167,11 @@ export default function Shop() {
 					<Button
 						onClick={handleCheckout}
 						backgroundColor={`var(--accent)`}
-						className={`transition-opacity duration-100 ease-in ${ticketsAmount === 0 ? 'cursor-not-allowed opacity-50' : ''}`}
+						className={`transition-opacity duration-100 ease-in ${
+							ticketsAmount === 0
+								? 'cursor-not-allowed opacity-50'
+								: ''
+						}`}
 						textColor="black"
 						primary={true}
 						disabled={ticketsAmount === 0}
