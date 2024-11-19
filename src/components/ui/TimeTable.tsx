@@ -20,6 +20,9 @@ export default function TimeTable() {
 		};
 	}, [initializeBreakpoints]);
 
+	const date = new Date(process.env.NEXT_PUBLIC_DATE_EVENT);
+
+
 	const [day, setDay] = useState(1);
 
 	return (
@@ -27,7 +30,7 @@ export default function TimeTable() {
 			{!smallMobile && !mobile && !tablet ? (
 				<>
 					<div className="grid grid-cols-3 border-b-2 border-primary pb-4 ">
-						{timeTableData.map(item => (
+						{timeTableData.map((item, i) => (
 							<div
 								key={item.day}
 								onClick={() => setDay(item.day)}
@@ -40,7 +43,8 @@ export default function TimeTable() {
 								{`DAY ${item.day}`}
 								<br />
 								<div className="font-kumbh-sans tracking-widest">
-									Oktober 0{item.day}.2024
+									{date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}
+									{date.setDate(date.getDate() + 1) && ''}
 								</div>
 							</div>
 						))}

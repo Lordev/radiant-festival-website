@@ -8,6 +8,7 @@ export default function Ticket() {
     const { openShoppingMenu } = useShoppingMenu();
 
     return (
+        <div className="flex items-center justify-center">
         <Image
             className="mx-auto cursor-pointer"
             src="/ticket.png"
@@ -19,5 +20,6 @@ export default function Ticket() {
                 openShoppingMenu();
             }}
         />
+        </div>
     );
 }

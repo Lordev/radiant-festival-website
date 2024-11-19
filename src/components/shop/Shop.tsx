@@ -21,10 +21,15 @@ export default function Shop() {
 	const decrementTickets = useTicketsStore(state => state.decrementTickets);
 	const setTicketsAmount = useTicketsStore(state => state.setTicketsAmount);
 
+	const eventDate = new Date(process.env.NEXT_PUBLIC_DATE_EVENT);
+	const endDate = new Date(eventDate);
+
+	endDate.setDate(eventDate.getDate() + 2);
+
 	const article = [
 		{
 			title: 'Ticket Festival: Fun Zone',
-			date: '01 - 03 Oktober 2024',
+			date: `${eventDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}`,
 		},
 	];
 
