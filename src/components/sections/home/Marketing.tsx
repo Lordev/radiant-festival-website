@@ -15,7 +15,7 @@ export default function Marketing() {
             />
             <ImageWithObserver
                 src="/leaf-4.png"
-                className="right-0 absolute bottom-0 h-[468px]"
+                className="right-0 absolute bottom-0 h-[468px] z-10"
                 animation="translateX(100%)"
                 width={208}
                 height={468}
