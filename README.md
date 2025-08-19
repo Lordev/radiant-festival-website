@@ -1,6 +1,6 @@
 # 🎪 Radiant Festival
 
-A modern festival website designed to showcase event details and provide a seamless ticket purchasing experience. With Stripe integration, it offers a quick and efficient way to handle payments without the need for complex e-commerce functionality, making it ideal for this type of project.
+A demo website for a festival event in the Netherlands. Built to showcase event details and provide a simple ticket purchasing flow powered by Stripe.
 
 ## 📦 Tech Stack
 
@@ -20,13 +20,13 @@ A modern festival website designed to showcase event details and provide a seaml
 
 ## 🛠️ Process
 
-I started from a full Figma design that defined layout and spacing and the jungle-themed visual direction sand-toned backgrounds and a cohesive brand palette guided visual decisions. Using the design as a reference I moved straight into development and iterated directly in code, addressing UI/UX issues (timing, visibility, z-index) as they appeared and resolving animation problems during implementation. Once behavior was stable I ported the final animations to Framer Motion for consistency and fine-grained control.
+I started from a full, static Figma design that defined layout, spacing and the brand palette. The visual direction is jungle-themed with sand-toned backgrounds to keep a cohesive vibe.
 
-Later I added a small shop/ticket flow to challenge myself, product listings and a cart (using Zustand). Payments use Stripe Checkout and are handled mostly client-side for simplicity; only minimal serverless endpoints are used to create sessions and verify payment events when needed.
+I moved straight into development and iterated in code. As the UI came together I fixed issues that only showed up in the browser visibility problems, z-index conflicts, and animation timing, and resolved those during development before porting stable animations to Framer Motion.
 
-Implementing payments required some backend work: creating Stripe sessions, adding webhook handlers, and building retries and logging so the frontend could remain simple.
+Later I added a small shop/ticket flow as a challenge. The flow is intentionally simple: Stripe Checkout on the client with minimal serverless endpoints to create sessions and verify webhooks.
 
-For layout and performance I defined custom breakpoints, swapped assets per device, and audited the deployed page's LCP/CLS with Google Lighthouse. Heavy visual sections (parallax banners, galleries, sliders) were moved to client-side rendering and dynamic imports, and oversized images were compressed and converted to WebP. I also experimented with containerized deployment using Google Cloud Build (see `cloudbuild.yaml`) but deployed to Vercel for simplicity and zero cost.
+For performance I focused first: swapping assets per breakpoint, moving heavy visual sections to client-side with dynamic imports, and compressing large images to WebP. I experimented with a containerized deployment using Google Cloud Build (see `cloudbuild.yaml`), but deployed to Vercel for simplicity and no cost.
 
 ## 📚 What I Learned
 
