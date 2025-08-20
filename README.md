@@ -67,13 +67,8 @@ Each part of this project helped me understand more about building scalable web 
 To run the project in your local environment, follow these steps:
 
 1. Clone the repository to your local machine.
-2. Run `npm install` or `yarn` in the project directory to install the required dependencies.
-3. Run `npm run start` or `yarn start` to get the project started. Or use Docker Compose to build and run the container:
-
-   ```bash
-   docker-compose up --build
-   ```
-
+2. Run `npm install` in the project directory to install the required dependencies.
+3. Run `npm run dev` to get the project started. Or use `docker-compose up --build` to build and run the container:
 4. Open [http://localhost:3000](http://localhost:3000) (or the address shown in your console) in your web browser to view the app.
 
 ## 🎥 Showcase
