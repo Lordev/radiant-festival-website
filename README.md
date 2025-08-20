@@ -79,11 +79,14 @@ To run the project in your local environment, follow these steps:
 
 ## 🎥 Showcase
 
-### Menu Interaction
-- Demonstrates the interactive animated menu with smooth transitions and device-specific optimizations.
+### Homepage
+
+https://github.com/user-attachments/assets/3ad535db-21d3-43e1-aab1-ddc0e6411d99
 
 ### Payment Side Menu
-- Highlights the integration with Stripe for secure and seamless payment processing.
 
-### Homepage
-- Showcases the responsive design and dynamic animations that enhance the user experience.
+https://github.com/user-attachments/assets/326ce9e9-5925-4e7e-a8bb-c80cbbb5494e
+
+### Menu Interaction
+
+https://github.com/user-attachments/assets/3000ed51-3e23-4058-a7f5-2451b887ecb1
