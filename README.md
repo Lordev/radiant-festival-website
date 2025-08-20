@@ -26,7 +26,7 @@ I moved straight into development and iterated in code. As the UI came together 
 
 Later I added a small shop/ticket flow as a challenge. The flow is intentionally simple: Stripe Checkout on the client with minimal serverless endpoints to create sessions and verify webhooks.
 
-For performance I focused first: swapping assets per breakpoint, moving heavy visual sections to client-side with dynamic imports, and compressing large images to WebP. I experimented with a containerized deployment using Google Cloud Build (see `cloudbuild.yaml`), but deployed to Vercel for simplicity and no cost.
+For performance I focused first: swapping assets per breakpoint, moving heavy visual sections to client-side with dynamic imports, and compressing large images to WebP.
 
 ## 📚 What I Learned
 
@@ -50,7 +50,6 @@ During this project, I've picked up important skills and a better understanding 
 
 ### 🔄 Docker and Deployment
 
-- **Containerization**: I learned how to use Docker and Docker Compose to containerize the application, simplifying the deployment process.
 - **Cloud Deployment Experimentation**: Experimented with Google Cloud Build and a containerized deployment (see `cloudbuild.yaml` in the project), but deployed to Vercel for simplicity and zero cost.
 
 ### 📈 Overall Growth
